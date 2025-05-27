@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Applying Predictive Analysis on Diamond Prices - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="This article will introduce you to a case study that applies predictive analytics on a dataset of diamond prices. We’ll begin with the Problem unders…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Applying Predictive Analysis on Diamond Prices" />
+
+    <meta property="og:description" content="This article will introduce you to a case study that applies predictive analytics on a dataset of diamond prices. We’ll begin with the Problem unders…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/applying-predictive-analysis-on-diamond-prices/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="This article will introduce you to a case study that applies predictive analytics on a dataset of diamond prices. We’ll begin with the Problem unders…" />
+
+
+<meta name="twitter:title" content="Applying Predictive Analysis on Diamond Prices" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../index.html">Home</a></li>
+
+    
+        
+
+        
+            <li><a href="../blog/index.html">Blog</a></li>
+        
+
+        
+            <li class="active">Applying Predictive Analysis on Diamond Prices</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Applying Predictive Analysis on Diamond Prices</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Updated on Jan 07, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>This article will introduce you to a case study that applies predictive analytics on a dataset of diamond prices. We’ll begin with the <strong>Problem understanding and definition stage</strong>.</p><span id="diamond-prices-problem-understanding-and-definition" class="anchor-target"></span><h2 class="heading">Diamond prices – problem understanding and definition <a class="header-link" href="index.html#diamond-prices-problem-understanding-and-definition">#</a></h2><hr>
+<p>A new company, <strong>Intelligent Diamond Reseller (IDR)</strong>, wants to get into the business of reselling diamonds. They want to innovate in the business, so they will use predictive modeling to estimate how much the market will pay for diamonds. Of course, to sell diamonds in the market, first they have to buy them from the producers; this is where predictive modeling becomes useful.</p><p>Let&#39;s say people at IDR know ahead of time that they will be able to sell a specific diamond in the market for USD 5,000. With that information, they know how much to pay when buying this diamond. If someone tries to sell that diamond to them for USD 2,750, then that would be a very good deal; likewise, it would be a bad deal to pay USD 6,000 for such a diamond.</p><p>So, as you can see, for IDR, it would be very important to be able to predict the price the market will pay for diamonds accurately.</p><p>They have been able to get a dataset (this is actually real-world data) containing the prices and key characteristics of about 54,000 diamonds; here we have the metadata about the dataset:</p>
+<ul>
+<li>Number of attributes: 10</li>
+</ul>
+<p><strong>Feature information</strong>: A DataFrame with 53,940 rows and 10 variables:</p>
+<ul>
+<li>price: Price in US dollars</li>
+<li>carat: Weight of the diamond</li>
+<li>cut: Quality of the cut (fair, good, very good, premium, ideal)</li>
+<li>color: Diamond color, from J (worst) to D (best)</li>
+<li>clarity: A measurement of how clear the diamond is (I1 (worst), SI2, SI1, VS2, VS1, VVS2, VVS1, IF (best))</li>
+<li>x: Length in mm</li>
+<li>y: Width in mm</li>
+<li>z: Depth in mm</li>
+<li>depth: Total depth percentage = <code>z / mean(x, y) = 2 * z / (x + y)</code></li>
+<li>table: Width of the top of the diamond relative to the widest point</li>
+</ul>
+<p>This is how this dataset looks:</p><p><img src="../media/uploads/2019/11/02/selection_120.png" alt="Selection_120.png"></p><span id="getting-more-context" class="anchor-target"></span><h2 class="heading">Getting more context <a class="header-link" href="index.html#getting-more-context">#</a></h2><hr>
+<p>According to the website <a href="https://www.diamonds.pro/" rel="nofollow" >https://www.diamonds.pro</a>, the most important factor in the price of the diamond is the carat or weight of the diamond. Along with the carat, other very important characteristics that play an important role in the price of diamonds are color, clarity, and cut. This is good news, since it seems that we have all these features contained in our dataset.</p><p>Another key characteristic about diamonds is the certification process, and there is no information about certification in the dataset, which is potentially problematic since our research shows that people will be willing to pay much less for a diamond that is not certified. This is one of the key questions that you will have to ask the IDR people. After talking with them, they inform you that they will only deal with certified diamonds and that the dataset you will work with is about certified diamonds.</p><p>This is an example of the limitations that must be considered in any predictive model. In this case, since only certified diamonds will be used for model building and training, it would be incorrect to use this model to predict the price of diamonds that are not certified. We will discuss model limitations much more in the modeling chapters.</p><span id="diamond-prices-proposing-a-solution-at-a-high-level" class="anchor-target"></span><h2 class="heading">Diamond prices – proposing a solution at a high level <a class="header-link" href="index.html#diamond-prices-proposing-a-solution-at-a-high-level">#</a></h2><hr>
+<p>Now, we have a general understanding of the problem, what IDR would like to accomplish, and we know something about the dataset and the context of the problem. Let&#39;s formalize the problem: our <strong>unit of observation</strong> is the diamond, the dataset we have consists of 10 <strong>attributes</strong>, and each diamond is a <strong>data point</strong>. Let&#39;s make explicit the goal we would like to accomplish and the deliverables.</p><span id="goal" class="anchor-target"></span><h2 class="heading">Goal <a class="header-link" href="index.html#goal">#</a></h2><hr>
+<p>After discussions with the top management from IDR, you state the general goals of the project. They are listed as follows:</p>
+<ul>
+<li>To use the features contained in the dataset (all columns except for the price)</li>
+<li>To build a predictive model that predicts the price of diamonds, as accurately as possible, based on those features</li>
+<li>To predict the prices of diamonds offered to IDR by the producers, so IDR can decide how much to pay for those diamonds</li>
+</ul>
+<p>These goals will guide all of our actions and the development of the project.</p><span id="methodology" class="anchor-target"></span><h2 class="heading">Methodology <a class="header-link" href="index.html#methodology">#</a></h2><hr>
+<p>For the problem we have defined, the <strong>target</strong> is the price of the diamond, and our <strong>features</strong> will be the nine remaining columns in our dataset: carat, cut, color, clarity, x, y, z, depth, and table.</p><p>Since we are talking about prices, the type of variable we want to predict is a continuous variable; it can take (in principle) any numeric value within a range. (Of course, we are talking about a practical definition of continuity, not a strictly mathematical definition.) Since we are predicting a continuous variable, we are trying to solve a <strong>regression problem</strong>; in predictive analytics, when the target is a numerical variable, we are within a category of problems known as <strong>regression tasks</strong>.</p><p>Perhaps you are already familiar with the term <strong>linear regression</strong>, which is very popular in statistics; however, these terms should not be confused, as the latter refers to a specific statistical technique and the former to a whole category of machine learning problems.</p><p>For now, it will be enough to say that the methodology will consist mainly of the following: <strong>building a regression model with the price of the diamond as a target</strong>.</p><span id="metrics-for-the-model" class="anchor-target"></span><h2 class="heading">Metrics for the model <a class="header-link" href="index.html#metrics-for-the-model">#</a></h2><hr>
+<p>How are we going to evaluate how good our model is? To answer this question, in predictive analytics we usually use <strong>metrics</strong>. Since we are dealing with a regression problem, and there are many standardized metrics that are routinely used for these problems, we will usually use one or some of these metrics and evaluate our model. We must choose a metric that is appropriate for our problem, but sometimes none of the standard metrics will be useful, so it may be that we need to build our own personalized metric or metrics.</p><p>The logic behind almost all of the standard metrics is very straightforward:</p>
+<ul>
+<li>If the predictions are close to the actual (real) values, then that is considered good</li>
+<li>Conversely, if the prediction is far away from the real value, then that is not good</li>
+</ul>
+<p>The mathematical formulas that define all of the metrics are based on this principle.</p><p>For now, let&#39;s just say that the metrics for model evaluation will be chosen in such a way that <strong>the model will try to minimize the difference between the predicted and the actual prices; in other words, we will try to build a model that is as accurate as possible</strong>.</p><span id="deliverables-for-the-project" class="anchor-target"></span><h2 class="heading">Deliverables for the project <a class="header-link" href="index.html#deliverables-for-the-project">#</a></h2><hr>
+<p>The people from IDR have stated that they would like a software tool where they can input the different features of the diamond and based on that, the tool gives back a prediction for the price of the diamond. That is their only concern; they care only about the price of the diamond.</p><p>You agree with their request and you propose that the solution will be a simple web application that will contain a form where they will be able to input the features of a diamond, and the application will give a prediction of the price based on the model that will be built using the available dataset.</p><span id="diamond-prices-data-collection-and-preparation" class="anchor-target"></span><h2 class="heading">Diamond prices – data collection and preparation <a class="header-link" href="index.html#diamond-prices-data-collection-and-preparation">#</a></h2><hr>
+<p>Great! The project, together with your proposed solution, has been approved and now it is time for the second phase in the predictive analytics process: data collection and preparation. Finally, it&#39;s time for us to get our hands dirty!</p><p>The data collection process is entirely dependent on the project. Sometimes you will need to get the data yourself using some <strong>extract</strong> , <strong>transform</strong>, <strong>load (ETL)</strong> technologies, sometimes you will need access to some internal database, or you may get access to external data via services such as Bloomberg or Quandl, from public APIs, and so on.</p><p>The point is that this process is so unique to any predictive analytics project that we won&#39;t be able to say too much about it. Now, back to our example, consider the following scenarios:</p>
+<ol>
+<li><p>We already have a dataset provided to us, so the data has been collected, but now we need to prepare it.</p></li>
+<li><p>The goal of this stage is to <strong>get a dataset that is ready for analysis</strong>.</p></li>
+<li><p>Fortunately for us, the dataset is already cleaned and almost ready for analysis, unlike most projects in the real world, where a good portion of your time will be spent cleaning and preparing the dataset.</p></li>
+<li><p>In our case (intentionally), very little data preparation needs to be done for this project; similarly to the data collection process, data cleaning is very much unique to each project.</p>
+        <div class="admonition note">        <p class="admonition-title"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> note:        </strong></p><p>Data cleaning often takes a lot of time and effort. There is no standard way to proceed, since this process is unique to every dataset. It includes identifying corrupt, incomplete, useless, or incorrect data and replacing or removing such pieces of data from the dataset. Almost always, a programming language such as Python is used for this process because of its many libraries, as well as for its capability at handling regular expressions.</p></div>
+        </li>
+<li><p>Most of the time, after cleaning the data, you will arrive at a dataset that looks like the one we have; let&#39;s show the code for loading the dataset:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># loading important libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Loading the data</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s1">&#39;../data&#39;</span>
+<span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s1">&#39;diamonds.csv&#39;</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="n">FILE_NAME</span><span class="p">)</span>
+<span class="n">diamonds</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+<span class="n">diamonds</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</td></tr></table></div></li>
+<li><p>After running the preceding code, we found that our dataset has 53940 rows and 10 columns:</p><div class="codeblock language-text"><div class="highlight"><pre><span></span>(53940, 10)
+</pre></div>
+</div></li>
+<li><p>Now, it is time for us to check if the dataset is ready for analysis; let&#39;s begin by checking the summary statistics of the numerical variables of the dataset:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div></li>
+<li><p>This is what we get:</p></li>
+</ol>
+<p><img src="../media/uploads/2019/11/02/selection_121.png" alt="Selection_121.png"></p><p>This output is very convenient for quickly checking for strange values in the numerical variables; for instance, given the definitions of all of them, we would not expect to find negative values, and indeed, based on the minima (min row) all values are non-negative, which is good.</p><p>Let&#39;s begin our analysis with the <strong>carat</strong> column. The maximum value for the carat column seems to be a little too high; why would 5.01 be considered high? Well, considering the 75th percentile, which is close to 1.0, and the standard deviation (0.47), the maximum value is more than eight standard deviations from the 75th percentile, which is definitely a big difference.</p><p>This diamond with a carat of 5.01 is a candidate for consideration as an <strong>outlier</strong>: a value that is so distant from the typical range of variability of the values that it may indicate an error in the measurement or recording of the data.</p><p>Even if the outlier is a legitimate value, it may be so rare that it may be appropriate to exclude it from the analysis, since we are <strong>almost always</strong> interested in the generality of what we are analyzing. For example, in a study of the income of the general population of the USA, would you include Jeff Bezos in your sample? Probably not. Now, we won&#39;t be doing anything at this moment about the rare heavy diamond, let&#39;s just make a mental note about the current scenario:</p>
+<ul>
+<li>Let&#39;s continue with the next columns, depth, and table; since by definition these two quantities are percentages, all values should be between 0 and 100, which is the case, so everything looks OK with those columns.</li>
+<li>Now, let&#39;s take a look at the descriptive statistics for the price column; remember this one is our target.</li>
+<li>The cheapest diamond we observe is one with a price of USD 326, the mean price is almost USD 4,000, and the most expensive diamond has a price of USD 18,823; could this price be an outlier?</li>
+<li>Let&#39;s quickly evaluate how far, in terms of standard deviations, this price is from the 75th percentile: (18,823 - 5,324.25) / 3,989.4 = 3.38 standard deviations.</li>
+<li>So, although it is indeed very expensive, given the high variability observed in the prices (a standard deviation of 3,989.4), I would not consider the maximum as an outlier.</li>
+</ul>
+<span id="dealing-with-missing-values" class="anchor-target"></span><h2 class="heading">Dealing with missing values <a class="header-link" href="index.html#dealing-with-missing-values">#</a></h2><hr>
+<p>Now, let&#39;s take a look at the variables regarding the dimension of the diamonds: x, y, and z.</p><p>The first thing we notice is that the minimum values for these features are zero. From what these variables represent, we know this can&#39;t be possible (otherwise, we would be talking about two-dimensional diamonds).</p><p>Let&#39;s examine the values of x that are equal to zero:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div><p>The output is shown in the following screenshot:</p><p><img src="../media/uploads/2019/11/02/selection_122.png" alt="Selection_122.png"></p><p>Interesting... some of the diamonds with the value of zero in <strong>x</strong> also have zeros in the other dimensions. Although the actual value is zero, it makes more sense to consider these as <strong>missing values</strong> since, in this context, zero is not an admissible value. There are many techniques for dealing with missing values, ranging from the simplest way, which is removing the whole row in the dataset, to very complex <strong>imputation</strong> algorithms that try to guess the best values to substitute for the missing ones.</p><p>We will do the following: excluding the first row (we will get back to that one in a second), we will remove the remaining seven data points. Of course, we are losing some information, but remember we have 53,940 data points so losing seven is actually not a big deal, so let&#39;s keep the rows where x or y are greater than zero:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span> <span class="o">=</span> <span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)]</span>
+</pre></div>
+</div><p>Now, let&#39;s examine the only row left where we have x with a value of zero; since we know that the index for that row is 11182, let&#39;s use it to get the pandas series of the corresponding data point:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">11182</span><span class="p">]</span>
+</pre></div>
+</div><p>The output is shown in the following screenshot:</p><p><img src="../media/uploads/2019/11/02/selection_123.png" alt="Selection_123.png"></p><p>Now, let&#39;s use another simple method of imputation for the missing value in x. Since this seems like a diamond that is not very far from the average price (or average carat), let&#39;s replace the remaining missing value with the median of x:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">11182</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div><p>Why the median? Because the median, being the number at the middle of the distribution of a continuous variable, is a good indicator of the <strong>typical</strong> value of a variable; besides (unlike the arithmetic mean), it is not affected by outliers. Now, as you can see by running the following code, there are no more rows in which x has a value of zero:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div><p>We get the following output:</p><div class="codeblock language-text"><div class="highlight"><pre><span></span>(0, 10)
+</pre></div>
+</div><p>Now, let&#39;s repeat the same process with y:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div><p>We again get an empty data frame, indicating no more zero (missing) values for y. Finally, take a look at the rows where z equals zero:</p><p>This is just one sample, so there is no problem with imputing this value with the median of z:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">11182</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div><p>Finally, if we go back to the table containing the descriptive statistics for the numerical features, you will notice really extreme maximum values for both y and z. It would be very hard to find a (normal) diamond of more than 3 centimeters (30 mm) in size in any of the dimensions, so if you observe such values, we can be sure that those are errors in measurement. Since there are only three, the safest option is to remove them from our analysis:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)]</span>
+</pre></div>
+</div><p>We get the following output:</p><p><img src="../media/uploads/2019/11/02/selection_124.png" alt="Selection_124.png"></p><p>Now, let&#39;s remove those three data points from our dataset by negating the condition we use to get them:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">diamonds</span> <span class="o">=</span> <span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">))]</span>
+</pre></div>
+</div><p>Great! We are done with our data preparation of the numerical variables of this dataset. Of course, in reality, it will take a lot more effort and time on your part to have a clean dataset to work with; this was just a mini-example.</p><p>Hope you enjoyed reading this article. If you want to learn more about predictive analysis, you must check out Hands-On Predictive Analytics with Python. Written by Alvaro Fuentes, a data scientist with over 12 years of experience, Hands-On Predictive Analytics with Python presents some of the most used Predictive Analytics tools, models, and techniques currently having a big impact on every industry.</p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="../top-9-data-science-courses-to-become-a-skilled-data-scientist/index.html" title="Top 9 Data Science Courses to Become A Skilled Data Scientist">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Top 9 Data Science Courses to Become A …
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="../why-do-the-startups-prefer-nosql-and-the-significant-of-mongodb/index.html" title="Why do the Startups Prefer NoSQL and the Significant of MongoDB">
+                            Why do the Startups Prefer NoSQL and th…
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

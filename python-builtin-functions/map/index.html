@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Python map() function - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="The map() built-in function returns an iterator after applying the function to each item in the sequence. Its syntax is as follows:Syntax: map(functi…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python map() function" />
+
+    <meta property="og:description" content="The map() built-in function returns an iterator after applying the function to each item in the sequence. Its syntax is as follows:Syntax: map(functi…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/python-builtin-functions/map/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="The map() built-in function returns an iterator after applying the function to each item in the sequence. Its syntax is as follows:Syntax: map(functi…" />
+
+
+<meta name="twitter:title" content="Python map() function" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../../index.html">Home</a></li>
+
+    
+        
+        <li><a href="../index.html">Python Built-in Functions</a></li>
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+            <li class="active">Python map() function</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Python map() function</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Updated on Jan 07, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>The <code>map()</code> built-in function returns an iterator after applying the function to each item in the sequence. Its syntax is as follows:</p><p><strong>Syntax:</strong> <code>map(function, sequence[, sequence, ...]) -&gt; map object</code></p><p><strong>Python 3</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
+<span class="o">&lt;</span><span class="nb">map</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7f36fac76dd8</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div>
+
+<div class="panel panel-default code-runner" id="DR2LSkiY6FpYxcpM69rjAk"
+     data-coderunner-id="DR2LSkiY6FpYxcpM69rjAk" data-language="python">
+
+
+
+    <pre style="display: none"><code>map_obj = map(ord, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])
+print(map_obj)
+print(list(map_obj))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-DR2LSkiY6FpYxcpM69rjAk"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-DR2LSkiY6FpYxcpM69rjAk">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-DR2LSkiY6FpYxcpM69rjAk" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-DR2LSkiY6FpYxcpM69rjAk" id="output-tab-DR2LSkiY6FpYxcpM69rjAk"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-DR2LSkiY6FpYxcpM69rjAk" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-DR2LSkiY6FpYxcpM69rjAk" role="tab" id="input-tab-DR2LSkiY6FpYxcpM69rjAk"
+                       data-toggle="tab" aria-controls="input-DR2LSkiY6FpYxcpM69rjAk" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-DR2LSkiY6FpYxcpM69rjAk" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-DR2LSkiY6FpYxcpM69rjAk"
+                     aria-labelledby="output-tab-DR2LSkiY6FpYxcpM69rjAk">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-DR2LSkiY6FpYxcpM69rjAk" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-DR2LSkiY6FpYxcpM69rjAk" aria-labelledby="input-tab-DR2LSkiY6FpYxcpM69rjAk">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-DR2LSkiY6FpYxcpM69rjAk" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-DR2LSkiY6FpYxcpM69rjAk"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>Here the items in the list are passed to the <code>ord()</code> built-in function one at a time.</p><p>Since <code>map()</code> returns an iterator, we have used the <code>list()</code> function to produce the result at once.</p><p>The preceding code is functionally equivalent to the following:</p><p><strong>Python 3</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ascii</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]:</span>
+<span class="o">...</span>   <span class="n">ascii</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ascii</span>
+<span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div>
+
+<div class="panel panel-default code-runner" id="3LwQZPq4bSpvqG3vegLGc8"
+     data-coderunner-id="3LwQZPq4bSpvqG3vegLGc8" data-language="python">
+
+
+
+    <pre style="display: none"><code>ascii = []
+
+for i in [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]:
+    ascii.append(ord(i))
+
+print(ascii)
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-3LwQZPq4bSpvqG3vegLGc8"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-3LwQZPq4bSpvqG3vegLGc8">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-3LwQZPq4bSpvqG3vegLGc8" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-3LwQZPq4bSpvqG3vegLGc8" id="output-tab-3LwQZPq4bSpvqG3vegLGc8"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-3LwQZPq4bSpvqG3vegLGc8" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-3LwQZPq4bSpvqG3vegLGc8" role="tab" id="input-tab-3LwQZPq4bSpvqG3vegLGc8"
+                       data-toggle="tab" aria-controls="input-3LwQZPq4bSpvqG3vegLGc8" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-3LwQZPq4bSpvqG3vegLGc8" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-3LwQZPq4bSpvqG3vegLGc8"
+                     aria-labelledby="output-tab-3LwQZPq4bSpvqG3vegLGc8">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-3LwQZPq4bSpvqG3vegLGc8" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-3LwQZPq4bSpvqG3vegLGc8" aria-labelledby="input-tab-3LwQZPq4bSpvqG3vegLGc8">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-3LwQZPq4bSpvqG3vegLGc8" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-3LwQZPq4bSpvqG3vegLGc8"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>However, using <code>map()</code> results in shorter code and is often run faster.</p><p>In Python 2, the <code>map()</code> function returns a list instead of an iterator (which is not very efficient in terms of memory consumption), so we don&#39;t need to wrap <code>map()</code> in a <code>list()</code> call.</p><p><strong>Python 2</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span> <span class="c1"># in Python 2</span>
+<span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><span id="passing-user-defined-function" class="anchor-target"></span><h2 class="heading">Passing User-defined Function <a class="header-link" href="index.html#passing-user-defined-function">#</a></h2><hr>
+<p>In the following listing, we are passing a user-defined function to the <code>map()</code> function.</p><p><strong>Python 3</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">twice</span><span class="p">,</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">55</span><span class="p">]))</span>
+<span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">110</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div>
+
+<div class="panel panel-default code-runner" id="srjhRQ7rPPbDwqgLHh6wQg"
+     data-coderunner-id="srjhRQ7rPPbDwqgLHh6wQg" data-language="python">
+
+
+
+    <pre style="display: none"><code>def twice(x):
+    return x*2
+
+print(list(map(twice, [11,22,33,44,55])))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-srjhRQ7rPPbDwqgLHh6wQg"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-srjhRQ7rPPbDwqgLHh6wQg">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-srjhRQ7rPPbDwqgLHh6wQg" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-srjhRQ7rPPbDwqgLHh6wQg" id="output-tab-srjhRQ7rPPbDwqgLHh6wQg"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-srjhRQ7rPPbDwqgLHh6wQg" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-srjhRQ7rPPbDwqgLHh6wQg" role="tab" id="input-tab-srjhRQ7rPPbDwqgLHh6wQg"
+                       data-toggle="tab" aria-controls="input-srjhRQ7rPPbDwqgLHh6wQg" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-srjhRQ7rPPbDwqgLHh6wQg" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-srjhRQ7rPPbDwqgLHh6wQg"
+                     aria-labelledby="output-tab-srjhRQ7rPPbDwqgLHh6wQg">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-srjhRQ7rPPbDwqgLHh6wQg" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-srjhRQ7rPPbDwqgLHh6wQg" aria-labelledby="input-tab-srjhRQ7rPPbDwqgLHh6wQg">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-srjhRQ7rPPbDwqgLHh6wQg" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-srjhRQ7rPPbDwqgLHh6wQg"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>Here, the function multiplies each item in the list by 2.</p><span id="passing-multiple-arguments" class="anchor-target"></span><h2 class="heading">Passing Multiple Arguments <a class="header-link" href="index.html#passing-multiple-arguments">#</a></h2><hr>
+<p>If we pass <code>n</code> sequences to <code>map()</code>, the function must take <code>n</code> number of arguments and items from the sequences are consumed in parallel, until the shortest sequence is exhausted. In Python 2, however, the <code>map()</code> function stops when the longest sequence is exhausted and value of <code>None</code> is used as padding when the shorter sequence is exhausted.</p><p><strong>Python 3</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">calc_sum</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">calc_sum</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]))</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div>
+
+<div class="panel panel-default code-runner" id="mAxZBLBxeAf57orzs4sC7a"
+     data-coderunner-id="mAxZBLBxeAf57orzs4sC7a" data-language="python">
+
+
+
+    <pre style="display: none"><code>def calc_sum(x1, x2):
+    return x1+x2
+
+map_obj = list(map(calc_sum, [1, 2, 3, 4, 5], [10, 20, 30]))
+print(map_obj)
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-mAxZBLBxeAf57orzs4sC7a"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-mAxZBLBxeAf57orzs4sC7a">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-mAxZBLBxeAf57orzs4sC7a" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-mAxZBLBxeAf57orzs4sC7a" id="output-tab-mAxZBLBxeAf57orzs4sC7a"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-mAxZBLBxeAf57orzs4sC7a" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-mAxZBLBxeAf57orzs4sC7a" role="tab" id="input-tab-mAxZBLBxeAf57orzs4sC7a"
+                       data-toggle="tab" aria-controls="input-mAxZBLBxeAf57orzs4sC7a" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-mAxZBLBxeAf57orzs4sC7a" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-mAxZBLBxeAf57orzs4sC7a"
+                     aria-labelledby="output-tab-mAxZBLBxeAf57orzs4sC7a">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-mAxZBLBxeAf57orzs4sC7a" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-mAxZBLBxeAf57orzs4sC7a" aria-labelledby="input-tab-mAxZBLBxeAf57orzs4sC7a">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-mAxZBLBxeAf57orzs4sC7a" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-mAxZBLBxeAf57orzs4sC7a"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p><strong>Python 2</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="n">x2</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">x1</span>
+<span class="o">...</span>     <span class="k">else</span><span class="p">:</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">x1</span><span class="o">+</span><span class="n">x2</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">foo</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]))</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><span id="passing-lambda" class="anchor-target"></span><h2 class="heading">Passing Lambda <a class="header-link" href="index.html#passing-lambda">#</a></h2><hr>
+<p>If your function doesn&#39;t mean to be reused you can pass a lambda (inline anonymous function) instead of a function.</p><p><strong>Python 3</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x1</span><span class="p">:</span><span class="n">x1</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div>
+
+<div class="panel panel-default code-runner" id="nc8UuDCfkph4Hemace7nP3"
+     data-coderunner-id="nc8UuDCfkph4Hemace7nP3" data-language="python">
+
+
+
+    <pre style="display: none"><code>map_obj = map(lambda x1:x1*5, [1, 2, 3])
+print(list(map_obj))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-nc8UuDCfkph4Hemace7nP3"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-nc8UuDCfkph4Hemace7nP3">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-nc8UuDCfkph4Hemace7nP3" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-nc8UuDCfkph4Hemace7nP3" id="output-tab-nc8UuDCfkph4Hemace7nP3"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-nc8UuDCfkph4Hemace7nP3" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-nc8UuDCfkph4Hemace7nP3" role="tab" id="input-tab-nc8UuDCfkph4Hemace7nP3"
+                       data-toggle="tab" aria-controls="input-nc8UuDCfkph4Hemace7nP3" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-nc8UuDCfkph4Hemace7nP3" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-nc8UuDCfkph4Hemace7nP3"
+                     aria-labelledby="output-tab-nc8UuDCfkph4Hemace7nP3">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-nc8UuDCfkph4Hemace7nP3" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-nc8UuDCfkph4Hemace7nP3" aria-labelledby="input-tab-nc8UuDCfkph4Hemace7nP3">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-nc8UuDCfkph4Hemace7nP3" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-nc8UuDCfkph4Hemace7nP3"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>Here, the function multiples each item in the list by 5.</p><span id="pairing-items-only-in-python-2" class="anchor-target"></span><h2 class="heading">Pairing Items (Only in Python 2) <a class="header-link" href="index.html#pairing-items-only-in-python-2">#</a></h2><hr>
+<p>Finally, you can pair items from multiple sequences by passing <code>None</code> in place of a function:</p><p><strong>Python 2</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;pi&quot;</span><span class="p">)</span>
+<span class="p">[(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>Notice that when the shorter sequence is exhausted <code>None</code> is used to pad the result.</p><p>This form of <code>map()</code> not valid in Python 3.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;pi&quot;</span><span class="p">))</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;NoneType&#39;</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">callable</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div>
+
+<div class="panel panel-default code-runner" id="LPw9gkm5KD4N886Bd9xP5i"
+     data-coderunner-id="LPw9gkm5KD4N886Bd9xP5i" data-language="python">
+
+
+
+    <pre style="display: none"><code>print(list(map(None, &quot;hello&quot;, &quot;pi&quot;)))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-LPw9gkm5KD4N886Bd9xP5i"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-LPw9gkm5KD4N886Bd9xP5i">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-LPw9gkm5KD4N886Bd9xP5i" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-LPw9gkm5KD4N886Bd9xP5i" id="output-tab-LPw9gkm5KD4N886Bd9xP5i"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-LPw9gkm5KD4N886Bd9xP5i" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-LPw9gkm5KD4N886Bd9xP5i" role="tab" id="input-tab-LPw9gkm5KD4N886Bd9xP5i"
+                       data-toggle="tab" aria-controls="input-LPw9gkm5KD4N886Bd9xP5i" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-LPw9gkm5KD4N886Bd9xP5i" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-LPw9gkm5KD4N886Bd9xP5i"
+                     aria-labelledby="output-tab-LPw9gkm5KD4N886Bd9xP5i">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-LPw9gkm5KD4N886Bd9xP5i" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-LPw9gkm5KD4N886Bd9xP5i" aria-labelledby="input-tab-LPw9gkm5KD4N886Bd9xP5i">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-LPw9gkm5KD4N886Bd9xP5i" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-LPw9gkm5KD4N886Bd9xP5i"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>If you want to pair items from multiple sequences use the <a href="https://thepythonguru.com/python-zip-function/">zip()</a> function.</p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="../id/index.html" title="Python id() function">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Python id() function
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="../zip/index.html" title="Python zip() function">
+                            Python zip() function
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    <div class="well">
+        <h4>Python Built-in Functions</h4>
+        <ul>
+            
+                <li><a href="../abs/index.html">Python abs() function</a></li>
+            
+                <li><a href="../bin/index.html">Python bin() function</a></li>
+            
+                <li><a href="../id/index.html">Python id() function</a></li>
+            
+                <li><a href="index.html">Python map() function</a></li>
+            
+                <li><a href="../zip/index.html">Python zip() function</a></li>
+            
+                <li><a href="../filter/index.html">Python filter() function</a></li>
+            
+                <li><a href="../reduce/index.html">Python reduce() function</a></li>
+            
+                <li><a href="../sorted/index.html">Python sorted() function</a></li>
+            
+                <li><a href="../enumerate/index.html">Python enumerate() function</a></li>
+            
+                <li><a href="../reversed/index.html">Python reversed() function</a></li>
+            
+                <li><a href="../range/index.html">Python range() function</a></li>
+            
+                <li><a href="../sum/index.html">Python sum() function</a></li>
+            
+                <li><a href="../max/index.html">Python max() function</a></li>
+            
+                <li><a href="../min/index.html">Python min() function</a></li>
+            
+                <li><a href="../eval/index.html">Python eval() function</a></li>
+            
+                <li><a href="../len/index.html">Python len() function</a></li>
+            
+                <li><a href="../ord/index.html">Python ord() function</a></li>
+            
+                <li><a href="../chr/index.html">Python chr() function</a></li>
+            
+                <li><a href="../any/index.html">Python any() function</a></li>
+            
+                <li><a href="../all/index.html">Python all() function</a></li>
+            
+                <li><a href="../globals/index.html">Python globals() function</a></li>
+            
+                <li><a href="../locals/index.html">Python locals() function</a></li>
+            
+        </ul>
+    </div>
+
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../../about/index.html">About</a></li>
+                    <li><a href="../../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

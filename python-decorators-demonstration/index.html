@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Python Decorators Demonstration - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="When improving your Python programming language, you must come across the Decorators that are one of the elegant features heavily used in modern libr…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python Decorators Demonstration" />
+
+    <meta property="og:description" content="When improving your Python programming language, you must come across the Decorators that are one of the elegant features heavily used in modern libr…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/python-decorators-demonstration/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="When improving your Python programming language, you must come across the Decorators that are one of the elegant features heavily used in modern libr…" />
+
+
+<meta name="twitter:title" content="Python Decorators Demonstration" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../index.html">Home</a></li>
+
+    
+        
+
+        
+            <li><a href="../blog/index.html">Blog</a></li>
+        
+
+        
+            <li class="active">Python Decorators Demonstration</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Python Decorators Demonstration</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Updated on Jan 07, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>When improving your Python programming language, you must come across the Decorators that are one of the elegant features heavily used in modern libraries and frameworks. To encapsulate a lot of implementation details and leave out a simple interface, the decorators are very good tools to serve the purpose.</p><p>Let us take an example of simple login decorator that makes sure the user is logged in before any edition in the posts. This ensures redirecting to the login page by setting the right parameters to redirect back to the same page after successful registration. To avail this function, all you need to do is just put @login_required before the function.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">edit_post</span><span class="p">(</span><span class="n">post_id</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</td></tr></table></div><p>Decorators are very easy to use and work with, but writing decorators are even confusing for experienced Python developers. Pop in the article for more explanation on how Python decorators work in simple steps.</p><span id="functions" class="anchor-target"></span><h2 class="heading">Functions <a class="header-link" href="index.html#functions">#</a></h2><hr>
+<p><a href="../python-functions/index.html">Functions</a> are also called first-class objects in Python. The functions are values just like numbers, lists, and strings as seen in the following example.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="mi">1</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>Functions also have their own namespace which looks first to find variable names when it encounters them in the function body. To investigate the difference between local and global scope, let&#39;s write a simple function.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_string</span> <span class="o">=</span> <span class="s2">&quot;This is a global variable&quot;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
+<span class="p">{</span><span class="o">...</span><span class="p">,</span> <span class="s1">&#39;a_string&#39;</span><span class="p">:</span> <span class="s1">&#39;This is a global variable&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span> <span class="c1"># 2</span>
+<span class="p">{}</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><span id="function-scope-as-a-variable" class="anchor-target"></span><h2 class="heading">Function Scope as a Variable <a class="header-link" href="index.html#function-scope-as-a-variable">#</a></h2><hr>
+<p>In Python scope rule, variable creation always creates a new local variable but accessing the variable looks in the local scope by searching all the enclosing scopes to find a match. This does not mean that we cannot access global variables inside our functions. To modify the function <code>foo</code> to print out global variable we would expect to work as:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a_string</span> <span class="o">=</span> <span class="s2">&quot;This is a global variable&quot;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span> <span class="c1">#1</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span>
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="k">global</span> <span class="n">variable</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><span id="variable-lifetime" class="anchor-target"></span><h2 class="heading">Variable Lifetime <a class="header-link" href="index.html#variable-lifetime">#</a></h2><hr>
+<p>Not only variables live inside a namespace but they also have lifetimes which is important to note. Consider the example to not just scope rules that cause a problem but it also has to do with how function calls and implemented in Python and other languages.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 1</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="o">...</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;x&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><span id="nested-functions" class="anchor-target"></span><h2 class="heading">Nested functions <a class="header-link" href="index.html#nested-functions">#</a></h2><hr>
+<p>The creation of nested functions is allowed in Python which means we can declare functions inside of the functions and all the scoping and lifetime rules still get applied normally.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">outer</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+<span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 1</span>
+<span class="o">...</span>     <span class="n">inner</span><span class="p">()</span> <span class="c1"># 2</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">outer</span><span class="p">()</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><span id="decorators" class="anchor-target"></span><h2 class="heading">Decorators <a class="header-link" href="index.html#decorators">#</a></h2><hr>
+<p>A closure that takes a function as a parameter and returns a replacement function is called a decorator. Let us look at an example to work with useful decorators.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">some_func</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+<span class="o">...</span>         <span class="k">print</span><span class="p">(</span><span class="s2">&quot;before some_func&quot;</span><span class="p">)</span>
+<span class="o">...</span>         <span class="n">ret</span> <span class="o">=</span> <span class="n">some_func</span><span class="p">()</span> <span class="c1"># 1</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">ret</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">inner</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="mi">1</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">decorated</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span> <span class="c1"># 2</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">decorated</span><span class="p">()</span>
+<span class="n">before</span> <span class="n">some_func</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>The decorated variable is a decorated version of foo. In fact, we might want to replace foo with the decorated version altogether without learning any new syntax simply by reassigning the variable that contains our function:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span> <span class="c1"># doctest: +ELLIPSIS</span>
+<span class="o">&lt;</span><span class="n">function</span> <span class="n">outer</span><span class="o">.&lt;</span><span class="nb">locals</span><span class="o">&gt;.</span><span class="n">inner</span> <span class="n">at</span> <span class="mi">0</span><span class="n">x</span><span class="o">...&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>Now, to trace the function calls we have a beautiful decorator. The decorators can be used to manipulate any programming language using Python language. This has powerful implications so you should now understand how they work and when they are useful.</p><p>Author Bio</p><p>Kibo Hutchinson is a Technology analyst at Tatvasoft UK which is a<a href="https://www.tatvasoft.co.uk/services/software-application-development-maintenance.php" rel="nofollow" > software development company</a> in London. She strongly believes that knowledge is meant to be shared and in this post she is sharing her insights on Python.</p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="../is-python-a-programming-language-or-scripting-language/index.html" title="Is Python a Programming language or Scripting Language?">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Is Python a Programming language or Scr…
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="../why-python-is-an-ideal-choice-for-accomplishing-projects-involving-ai-ml/index.html" title="Why Python Is An Ideal Choice For Accomplishing Projects Involving AI &amp; ML">
+                            Why Python Is An Ideal Choice For Accom…
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

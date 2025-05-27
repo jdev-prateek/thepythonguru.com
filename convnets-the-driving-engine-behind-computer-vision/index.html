@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ConvNets – the driving engine behind computer vision - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="When Snapchat first introduced a filter featuring a breakdancing hotdog, the stock price of the company surged. However, investors were less interest…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ConvNets – the driving engine behind computer vision" />
+
+    <meta property="og:description" content="When Snapchat first introduced a filter featuring a breakdancing hotdog, the stock price of the company surged. However, investors were less interest…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/convnets-the-driving-engine-behind-computer-vision/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="When Snapchat first introduced a filter featuring a breakdancing hotdog, the stock price of the company surged. However, investors were less interest…" />
+
+
+<meta name="twitter:title" content="ConvNets – the driving engine behind computer vision" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../index.html">Home</a></li>
+
+    
+        
+
+        
+            <li><a href="../blog/index.html">Blog</a></li>
+        
+
+        
+            <li class="active">ConvNets – the driving engine behind computer vision</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>ConvNets – the driving engine behind computer vision</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Posted on Jan 09, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>When Snapchat first introduced a filter featuring a breakdancing hotdog, the stock price of the company surged. However, investors were less interested in the hotdog’s handstand; what actually fascinated them was the fact that Snapchat had successfully built a powerful form of computer vision technology. Computer vision allows us to both perceive and interpret the real world at scale.</p><p><em>This is an excerpt from the book</em> <a href="https://www.packtpub.com/big-data-and-business-intelligence/machine-learning-finance"></a> <a href="https://www.packtpub.com/big-data-and-business-intelligence/machine-learning-finance?utm_source=thepythonguru.com&amp;utm_medium=referral&amp;utm_campaign=OutreachB10354dollar5"><em>Machine Learning for Finance</em></a> <em>written by Jannes Klaas. This book introduces the study of machine learning and deep learning algorithms for financial practitioners.</em></p><p>An important application of computer vision can be seen in finance, specifically in the area of insurance. For instance, insurers might use drones to fly over roofs in order to spot issues that could become an expensive problem. We can dedicate a whole book to talk about the practical applications of computer vision because they are nearly endless. In this article, we will be looking at the convolutional layers, one of the most important building blocks of computer vision models.</p><span id="convolution-neural-networks" class="anchor-target"></span><h2 class="heading"><strong>Convolution Neural Networks</strong> <a class="header-link" href="index.html#convolution-neural-networks">#</a></h2><hr>
+<p><strong>Convolutional Neural Networks</strong>, <strong>ConvNets</strong>, or <strong>CNNs</strong> for short, are the driving engine behind computer vision. ConvNets allow us to work with large images while still keeping the network at a reasonable size.</p><p>The name Convolutional Neural Network comes from the mathematical operation that differentiates them from regular neural networks. Convolution is the mathematically correct term for sliding one matrix over another matrix. In the next section of the article, <em>Filters on MNIST</em>, we’ll explore why convolution is important for ConvNets, why this is not the best name in the world for them, and why ConvNets should in reality be called Filter Nets.</p><p>You may ask, “But why Filter Nets?” The answer is simply because they work by the use of filters.</p><p>In this next section, we will be working with the MNIST dataset. The MNIST dataset is a collection of handwritten digits that has become a standard &quot;Hello, World!&quot; application for computer vision.</p><span id="filters-on-mnist" class="anchor-target"></span><h3 class="heading"><strong>Filters on MNIST</strong> <a class="header-link" href="index.html#filters-on-mnist">#</a></h3><hr>
+<p>What does a computer actually see when it sees an image? Well, the value of the pixels is stored as numbers in the computer. So, when the computer <em>sees</em> a black and white image of the number seven, it actually sees something similar to the figure shown here:</p><p><img src="../media/uploads/2020/01/09/image-1.png" alt="The number 7 from MNIST dataset">
+<em>The number 7 from MNIST dataset</em></p><p>This preceding figure, 7, featured is an example from the MNIST dataset. The dataset is a popular benchmark for computer vision algorithms.</p><p>The larger numbers in the image have been highlighted to make the figure seven visible for humans, but for the computer, the image is really just a collection of numbers. This means that we can perform all kinds of mathematical operations on the image.</p><p>When detecting numbers, there are a few lower-level features that make a number. For example, in our 7, there&#39;s a combination of one vertical straight line, one straight line on the top, and one straight line through the middle. In contrast, a 9 is made up of four rounded lines that form a circle at the top and a straight, vertical line.</p><p>We&#39;ll now look at the central idea behind ConvNets, or Filter Nets. We can use small filters that can detect a certain kind of a low-level feature, like a vertical line, and then slide it over the entire image to detect all the vertical lines in the image.</p><p>The following figure shows how a vertical line filter would look like:</p><p><img src="../media/uploads/2020/01/09/image-2.png" alt="A vertical line filter"></p><p>The preceding figure shows us a 3 × 3 matrix. To detect vertical lines in our image, we need to slide this filter over the image.</p><p>Using the MNIST dataset below, we start at the top-left corner and slice out the upper-most top left 3 × 3 grid of pixels, which in this case is all zeros.</p><p>We then perform an element-wise multiplication of all the elements in the filter with all elements in the slice of the image. We then sum up these nine products  and add the bias. This value then forms the output of the filter and gets passed on as a new pixel to the next layer:</p><p><img src="../media/uploads/2020/01/09/image-3-equation.PNG" alt="Equation"></p><p>As a result, the output of our vertical line filter will look like this:</p><p><img src="../media/uploads/2020/01/09/image-4.png" alt="The output of a vertical line filter">
+<em>The output of a vertical line filter</em></p><p>Take a minute to notice that the vertical lines are visible while the horizontal lines are not. Only a few artifacts remain. Also, notice how the filter captures the vertical line from one side.</p><p>Since it responds to high pixel values on the left and low pixel values on the right, only the right side of the output shows strong positive values. Meanwhile, the left side of the line actually shows negative values. This is not a big problem in practice as there are usually different filters for different kinds of lines and directions.</p><p>In this article section, we looked at one of the building blocks of computer vision models – Convolutional Neural Networks. We applied a vertical filter on the MNIST dataset using the ConvNets. After applying filter, we saw that the vertical lines were still visible but the horizontal lines were removed. Similarly, we can apply a second filter. To know more about this, please refer to Jannes Klaas’ latest book <a href="https://www.amazon.com/Machine-Learning-Finance-algorithms-financial/dp/1789136369"></a> <a href="https://www.amazon.com/Machine-Learning-Finance-algorithms-financial/dp/1789136369"><em>Machine Learning for Finance</em></a>.</p><span id="about-the-author" class="anchor-target"></span><h1 class="heading">About the Author <a class="header-link" href="index.html#about-the-author">#</a></h1><hr>
+<p>Jannes Klaas is a quantitative researcher with a background in economics and finance. He taught machine learning for finance as lead developer for machine learning at the Turing Society, Rotterdam. He has led machine learning bootcamps and worked with financial companies on data-driven applications and trading strategies.</p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="../python-classes-and-interfaces/index.html" title="Python Classes and Interfaces">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Python Classes and Interfaces
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="../pros-cons-of-using-python-for-web-development/index.html" title="Pros &amp; Cons of Using Python For Web Development">
+                            Pros &amp; Cons of Using Python For Web Dev…
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

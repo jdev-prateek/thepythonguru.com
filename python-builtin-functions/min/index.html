@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Python min() function - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="The min() function returns the smallest of the input values.Its syntax is as follows:min(iterable[, default=obj, key=func]) -&amp;gt; value
+
+
+
+PARAMETER
+…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python min() function" />
+
+    <meta property="og:description" content="The min() function returns the smallest of the input values.Its syntax is as follows:min(iterable[, default=obj, key=func]) -&amp;gt; value
+
+
+
+PARAMETER
+…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/python-builtin-functions/min/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="The min() function returns the smallest of the input values.Its syntax is as follows:min(iterable[, default=obj, key=func]) -&amp;gt; value
+
+
+
+PARAMETER
+…" />
+
+
+<meta name="twitter:title" content="Python min() function" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../../index.html">Home</a></li>
+
+    
+        
+        <li><a href="../index.html">Python Built-in Functions</a></li>
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+            <li class="active">Python min() function</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Python min() function</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Updated on Jan 07, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>The <code>min()</code> function returns the smallest of the input values.</p><p>Its syntax is as follows:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">iterable</span><span class="p">[,</span> <span class="n">default</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+</pre></div>
+</div><div style="overflow-x:auto"><table class="table table-bordered table-hover table-condensed"><thead>
+<tr>
+<th>PARAMETER</th>
+<th>           DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>iterable</code> (required)</td>
+<td>An iterable object like string, list, tuple etc.</td>
+</tr>
+<tr>
+<td><code>default</code> (optional)</td>
+<td>The default value to return if the iterable is empty.</td>
+</tr>
+<tr>
+<td><code>key</code> (optional)</td>
+<td>It refers to the single argument function to customize the sort order. The function is applied to each item on the iterable.</td>
+</tr>
+</tbody>
+</table></div><p>or</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">...</span><span class="p">[,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+</pre></div>
+</div><div style="overflow-x:auto"><table class="table table-bordered table-hover table-condensed"><thead>
+<tr>
+<th>PARAMETER</th>
+<th>      DESCRIPTION</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>a, b, c ...</code></td>
+<td>Items to compare</td>
+</tr>
+<tr>
+<td><code>key</code> (optional)</td>
+<td>It refers to the single argument function to customize the sort order. The function is applied on each of the items.</td>
+</tr>
+</tbody>
+</table></div><p>If <code>min()</code> is called with an iterable, it returns the smallest item in it. If the iterable is empty then the <code>default</code> value is returned (assuming it is provided), otherwise a <code>ValueError</code> exception is raised.</p><p>If <code>min()</code> is called with multiple arguments, it returns the smallest one.</p><p>Let&#39;s see some examples:</p><p><strong>Example 1</strong>: Calling <code>min()</code> with an iterable</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="s2">&quot;abcDEF&quot;</span><span class="p">)</span> <span class="c1"># find smallest item in the string</span>
+<span class="s1">&#39;D&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># find smallest item in the list</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">((</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">))</span> <span class="c1"># find smallest item in the tuple</span>
+<span class="s1">&#39;one&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span><span class="p">})</span> <span class="c1"># find smallest item in the dict</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">([])</span> <span class="c1"># empty iterable causes ValueError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="nb">min</span><span class="p">()</span> <span class="n">arg</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">sequence</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">([],</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># supressing the error with default value</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>Try it out:</p>
+
+<div class="panel panel-default code-runner" id="gBKDsRraSqyAFPVusdg3m6"
+     data-coderunner-id="gBKDsRraSqyAFPVusdg3m6" data-language="python">
+
+
+
+    <pre style="display: none"><code># find smallest item in the string
+print(min(&quot;abcDEF&quot;)) 
+
+# find smallest item in the list
+print(min([2, -1, 4, 3])) 
+
+# find smallest item in the tuple
+print(min((&quot;one&quot;, &quot;two&quot;, &quot;three&quot;))) 
+ 
+# find smallest item in the dict
+print(min({1: &quot;one&quot;, 2: &quot;two&quot;, 3: &quot;three&quot;}))
+
+#print(min([]))  # empty iterable causes ValueError
+
+# supressing the error with default value
+print(min([], default=0))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-gBKDsRraSqyAFPVusdg3m6"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-gBKDsRraSqyAFPVusdg3m6">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-gBKDsRraSqyAFPVusdg3m6" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-gBKDsRraSqyAFPVusdg3m6" id="output-tab-gBKDsRraSqyAFPVusdg3m6"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-gBKDsRraSqyAFPVusdg3m6" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-gBKDsRraSqyAFPVusdg3m6" role="tab" id="input-tab-gBKDsRraSqyAFPVusdg3m6"
+                       data-toggle="tab" aria-controls="input-gBKDsRraSqyAFPVusdg3m6" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-gBKDsRraSqyAFPVusdg3m6" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-gBKDsRraSqyAFPVusdg3m6"
+                     aria-labelledby="output-tab-gBKDsRraSqyAFPVusdg3m6">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-gBKDsRraSqyAFPVusdg3m6" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-gBKDsRraSqyAFPVusdg3m6" aria-labelledby="input-tab-gBKDsRraSqyAFPVusdg3m6">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-gBKDsRraSqyAFPVusdg3m6" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-gBKDsRraSqyAFPVusdg3m6"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p><strong>Example 2</strong>: Calling <code>min()</code> with multiple arguments</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span> 
+<span class="o">-</span><span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+<span class="s1">&#39;Y&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.91</span><span class="p">,</span> <span class="mf">2.41</span><span class="p">)</span>
+<span class="o">-</span><span class="mf">9.91</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>Try it out:</p>
+
+<div class="panel panel-default code-runner" id="WFTVR6n8BjAxiqTRs37wAE"
+     data-coderunner-id="WFTVR6n8BjAxiqTRs37wAE" data-language="python">
+
+
+
+    <pre style="display: none"><code>print(min(20, 10, 30, -5))
+
+print(min(&quot;c&quot;, &quot;b&quot;, &quot;a&quot;, &quot;Y&quot;, &quot;Z&quot;))
+ 
+print(min(3.14, -9.91, 2.41))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-WFTVR6n8BjAxiqTRs37wAE"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-WFTVR6n8BjAxiqTRs37wAE">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-WFTVR6n8BjAxiqTRs37wAE" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-WFTVR6n8BjAxiqTRs37wAE" id="output-tab-WFTVR6n8BjAxiqTRs37wAE"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-WFTVR6n8BjAxiqTRs37wAE" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-WFTVR6n8BjAxiqTRs37wAE" role="tab" id="input-tab-WFTVR6n8BjAxiqTRs37wAE"
+                       data-toggle="tab" aria-controls="input-WFTVR6n8BjAxiqTRs37wAE" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-WFTVR6n8BjAxiqTRs37wAE" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-WFTVR6n8BjAxiqTRs37wAE"
+                     aria-labelledby="output-tab-WFTVR6n8BjAxiqTRs37wAE">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-WFTVR6n8BjAxiqTRs37wAE" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-WFTVR6n8BjAxiqTRs37wAE" aria-labelledby="input-tab-WFTVR6n8BjAxiqTRs37wAE">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-WFTVR6n8BjAxiqTRs37wAE" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-WFTVR6n8BjAxiqTRs37wAE"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>Trying to find largest value among the objects of different types causes an error.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;pypi&quot;</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unorderable</span> <span class="n">types</span><span class="p">:</span> <span class="nb">str</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nb">int</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unorderable</span> <span class="n">types</span><span class="p">:</span> <span class="nb">list</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nb">int</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><span id="customing-sort-order" class="anchor-target"></span><h2 class="heading">Customing Sort Order <a class="header-link" href="index.html#customing-sort-order">#</a></h2><hr>
+<p>To customize the sort order we use the <code>key</code> named argument. It works exactly like the <code>key</code> named argument of the <a href="../sorted/index.html">sorted()</a> function.</p><p>Here is an example where we use key argument to make the string comparision case-insentive.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+<span class="s1">&#39;Y&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span>
+<span class="s1">&#39;a&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>Try it out:</p>
+
+<div class="panel panel-default code-runner" id="trYr6ZkCzPQW4dWyfpwj59"
+     data-coderunner-id="trYr6ZkCzPQW4dWyfpwj59" data-language="python">
+
+
+
+    <pre style="display: none"><code>print(min(&quot;c&quot;, &quot;b&quot;, &quot;a&quot;, &quot;Y&quot;, &quot;Z&quot;))
+
+print(min(&quot;c&quot;, &quot;b&quot;, &quot;a&quot;, &quot;Y&quot;, &quot;Z&quot;, key=str.lower))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-trYr6ZkCzPQW4dWyfpwj59"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-trYr6ZkCzPQW4dWyfpwj59">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-trYr6ZkCzPQW4dWyfpwj59" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-trYr6ZkCzPQW4dWyfpwj59" id="output-tab-trYr6ZkCzPQW4dWyfpwj59"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-trYr6ZkCzPQW4dWyfpwj59" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-trYr6ZkCzPQW4dWyfpwj59" role="tab" id="input-tab-trYr6ZkCzPQW4dWyfpwj59"
+                       data-toggle="tab" aria-controls="input-trYr6ZkCzPQW4dWyfpwj59" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-trYr6ZkCzPQW4dWyfpwj59" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-trYr6ZkCzPQW4dWyfpwj59"
+                     aria-labelledby="output-tab-trYr6ZkCzPQW4dWyfpwj59">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-trYr6ZkCzPQW4dWyfpwj59" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-trYr6ZkCzPQW4dWyfpwj59" aria-labelledby="input-tab-trYr6ZkCzPQW4dWyfpwj59">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-trYr6ZkCzPQW4dWyfpwj59" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-trYr6ZkCzPQW4dWyfpwj59"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>The following is another example where we compare strings based on its length instead of their ASCII values.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">((</span><span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;z++&quot;</span><span class="p">))</span>
+<span class="s1">&#39;java&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">min</span><span class="p">((</span><span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;z++&quot;</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+<span class="s1">&#39;z++&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</td></tr></table></div><p>Try it out:</p>
+
+<div class="panel panel-default code-runner" id="pGrB2WQPTtSCQVMGS7VncM"
+     data-coderunner-id="pGrB2WQPTtSCQVMGS7VncM" data-language="python">
+
+
+
+    <pre style="display: none"><code>print(min((&quot;java&quot;, &quot;python&quot;, &quot;z++&quot;)))
+
+print(min((&quot;java&quot;, &quot;python&quot;, &quot;z++&quot;), key=len))
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-pGrB2WQPTtSCQVMGS7VncM"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-pGrB2WQPTtSCQVMGS7VncM">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-pGrB2WQPTtSCQVMGS7VncM" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-pGrB2WQPTtSCQVMGS7VncM" id="output-tab-pGrB2WQPTtSCQVMGS7VncM"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-pGrB2WQPTtSCQVMGS7VncM" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-pGrB2WQPTtSCQVMGS7VncM" role="tab" id="input-tab-pGrB2WQPTtSCQVMGS7VncM"
+                       data-toggle="tab" aria-controls="input-pGrB2WQPTtSCQVMGS7VncM" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-pGrB2WQPTtSCQVMGS7VncM" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-pGrB2WQPTtSCQVMGS7VncM"
+                     aria-labelledby="output-tab-pGrB2WQPTtSCQVMGS7VncM">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-pGrB2WQPTtSCQVMGS7VncM" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-pGrB2WQPTtSCQVMGS7VncM" aria-labelledby="input-tab-pGrB2WQPTtSCQVMGS7VncM">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-pGrB2WQPTtSCQVMGS7VncM" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-pGrB2WQPTtSCQVMGS7VncM"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>There also exists a complementary function called <a href="../max/index.html">max()</a> which finds the largest of the input values.</p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="../max/index.html" title="Python max() function">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Python max() function
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="../eval/index.html" title="Python eval() function">
+                            Python eval() function
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    <div class="well">
+        <h4>Python Built-in Functions</h4>
+        <ul>
+            
+                <li><a href="../abs/index.html">Python abs() function</a></li>
+            
+                <li><a href="../bin/index.html">Python bin() function</a></li>
+            
+                <li><a href="../id/index.html">Python id() function</a></li>
+            
+                <li><a href="../map/index.html">Python map() function</a></li>
+            
+                <li><a href="../zip/index.html">Python zip() function</a></li>
+            
+                <li><a href="../filter/index.html">Python filter() function</a></li>
+            
+                <li><a href="../reduce/index.html">Python reduce() function</a></li>
+            
+                <li><a href="../sorted/index.html">Python sorted() function</a></li>
+            
+                <li><a href="../enumerate/index.html">Python enumerate() function</a></li>
+            
+                <li><a href="../reversed/index.html">Python reversed() function</a></li>
+            
+                <li><a href="../range/index.html">Python range() function</a></li>
+            
+                <li><a href="../sum/index.html">Python sum() function</a></li>
+            
+                <li><a href="../max/index.html">Python max() function</a></li>
+            
+                <li><a href="index.html">Python min() function</a></li>
+            
+                <li><a href="../eval/index.html">Python eval() function</a></li>
+            
+                <li><a href="../len/index.html">Python len() function</a></li>
+            
+                <li><a href="../ord/index.html">Python ord() function</a></li>
+            
+                <li><a href="../chr/index.html">Python chr() function</a></li>
+            
+                <li><a href="../any/index.html">Python any() function</a></li>
+            
+                <li><a href="../all/index.html">Python all() function</a></li>
+            
+                <li><a href="../globals/index.html">Python globals() function</a></li>
+            
+                <li><a href="../locals/index.html">Python locals() function</a></li>
+            
+        </ul>
+    </div>
+
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../../about/index.html">About</a></li>
+                    <li><a href="../../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

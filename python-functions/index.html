@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Python Functions - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="Functions are the re-usable pieces of code which helps us to organize structure of the code. We create functions so that we can run a set of statemen…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python Functions" />
+
+    <meta property="og:description" content="Functions are the re-usable pieces of code which helps us to organize structure of the code. We create functions so that we can run a set of statemen…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/python-functions/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="Functions are the re-usable pieces of code which helps us to organize structure of the code. We create functions so that we can run a set of statemen…" />
+
+
+<meta name="twitter:title" content="Python Functions" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../index.html">Home</a></li>
+
+    
+        
+
+        
+            <li><a href="../blog/index.html">Blog</a></li>
+        
+
+        
+            <li class="active">Python Functions</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Python Functions</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Updated on Jan 07, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>Functions are the re-usable pieces of code which helps us to organize structure of the code. We create functions so that we can run a set of statements multiple times during in the program without repeating ourselves.</p><span id="creating-functions" class="anchor-target"></span><h2 class="heading">Creating functions <a class="header-link" href="index.html#creating-functions">#</a></h2><hr>
+<p>Python uses def  keyword to start a function, here is the syntax:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="o">....</span> <span class="n">argN</span><span class="p">):</span>
+     <span class="c1">#statement inside function</span>
+</pre></div>
+</td></tr></table></div>
+        <div class="admonition note">        <p class="admonition-title"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> note:        </strong></p><p>All the statements inside the function should be indented using equal spaces. Function can accept zero or more arguments(also known as parameters) enclosed in parentheses. You can also omit the body of the function using the <code>pass</code> keyword, like this:</p></div>
+        <div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</td></tr></table></div><p>Let&#39;s see an example.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+   <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+       <span class="n">result</span> <span class="o">+=</span> <span class="n">i</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">1230</span>
+</pre></div>
+</div><p>Above we define a function called <code>sum()</code> with two parameters <code>start</code> and <code>end</code>. The function calculates the sum of all the numbers starting from <code>start</code> to <code>end</code>.</p><span id="function-with-return-value" class="anchor-target"></span><h2 class="heading">Function with return value. <a class="header-link" href="index.html#function-with-return-value">#</a></h2><hr>
+<p>The above function simply prints the result to the console, what if we want to assign the result to a variable for further processing? Then we need to use the <code>return</code> statement. The <code>return</code> statement sends a result back to the caller and exits the function.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+   <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+       <span class="n">result</span> <span class="o">+=</span> <span class="n">i</span>
+   <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">1230</span>
+</pre></div>
+</div><p>Here we are using the <code>return</code> statement to return the sum of numbers and assign it to variable <code>s</code>.</p><p>You can also use the <code>return</code> statement without a return value.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="p">):</span>
+       <span class="k">print</span><span class="p">(</span><span class="s2">&quot;start should be less than end&quot;</span><span class="p">)</span>
+       <span class="k">return</span>    <span class="c1"># here we are not returning any value so a special value None is returned</span>
+   <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+       <span class="n">result</span> <span class="o">+=</span> <span class="n">i</span>
+   <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>start should be less than end
+None
+</pre></div>
+</td></tr></table></div><p>In python, if you do not explicitly return value from a function, then a special value of <code>None</code> is always returned. Let&#39;s take an example:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>   <span class="c1"># test function with only one statement</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div><p>As you can see, the <code>test()</code> function doesn&#39;t explicitly return any value, so <code>None</code> is returned.</p><span id="global-variables-vs-local-variables" class="anchor-target"></span><h2 class="heading">Global variables vs local variables <a class="header-link" href="index.html#global-variables-vs-local-variables">#</a></h2><hr>
+<p><strong>Global variables</strong>: Variables that are not bound to any function , but can be accessed inside as well as outside the function are called global variables.</p><p><strong>Local variables</strong>: Variables which are declared inside a function are called local variables.</p><p>Let&#39;s see some examples to illustrate this point.</p><p><strong>Example 1</strong>:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">global_var</span> <span class="o">=</span> <span class="mi">12</span>         <span class="c1"># a global variable</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="n">local_var</span> <span class="o">=</span> <span class="mi">100</span>     <span class="c1"># this is local variable</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">global_var</span><span class="p">)</span>   <span class="c1"># you can access global variables in side function</span>
+
+<span class="n">func</span><span class="p">()</span>                  <span class="c1"># calling function func()</span>
+
+<span class="c1">#print(local_var)        # you can&#39;t access local_var outside the function, because as soon as function ends local_var is destroyed</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">12</span>
+</pre></div>
+</div><p><strong>Example 2:</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">xy</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">def</span> <span class="nf">cool</span><span class="p">():</span>
+    <span class="n">xy</span> <span class="o">=</span> <span class="mi">200</span>     <span class="c1"># xy inside the function is totally different from xy outside the function</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>    <span class="c1"># this will print local xy variable i.e 200</span>
+
+<span class="n">cool</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span>        <span class="c1"># this will print global xy variable i.e 100</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">200</span>
+<span class="m">100</span>
+</pre></div>
+</td></tr></table></div><p>You can bind local variable in the global scope by using the <code>global</code> keyword followed by the names of variables separated by comma (<code>,</code>).</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">increment</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">t</span>   <span class="c1"># now t inside the function is same as t outside the function</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1"># Displays 2</span>
+
+
+<span class="n">increment</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1"># Displays 2</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">2</span>
+<span class="m">2</span>
+</pre></div>
+</td></tr></table></div><p>Note that you can&#39;t assign a value to variable while declaring them global .</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">increment</span><span class="p">():</span>
+    <span class="c1">#global t = 1   # this is error</span>
+    <span class="k">global</span> <span class="n">t</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">100</span>        <span class="c1"># this is okay</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1"># Displays 101</span>
+
+
+<span class="n">increment</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="c1"># Displays 101</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">101</span>
+<span class="m">101</span>
+</pre></div>
+</td></tr></table></div><p>In fact there is no need to declare global variables outside the function. You can declare them global inside the function.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">x</span>   <span class="c1"># x is declared as global so it is available outside the function </span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+
+
+<span class="n">foo</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong>
+100</p><span id="argument-with-default-values" class="anchor-target"></span><h2 class="heading">Argument with default values <a class="header-link" href="index.html#argument-with-default-values">#</a></h2><hr>
+<p>To specify default values of argument, you just need to assign a value using assignment operator.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p>Above function has two parameter <code>i</code> and <code>j</code>. The parameter <code>j</code> has a default value of <code>100</code>, it means that we can omit value of <code>j</code> while calling the function.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># here no value is passed to j, so default value will be used</span>
+</pre></div>
+</div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">100</span>
+</pre></div>
+</div><p>Call the <code>func()</code> function again, but this time provide a value to the <code>j</code> parameter.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="c1"># here 300 is passed as a value of j, so default value will not be used</span>
+</pre></div>
+</div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">2</span> <span class="m">300</span>
+</pre></div>
+</div><span id="keyword-arguments" class="anchor-target"></span><h2 class="heading">Keyword arguments <a class="header-link" href="index.html#keyword-arguments">#</a></h2><hr>
+<p>There are two ways to pass arguments to method: positional arguments and Keyword arguments. We have already seen how positional arguments work in the previous section. In this section we will learn about keyword arguments.</p><p>Keyword arguments allows you to pass each arguments using name value pairs like this <code>name=value</code>. Let&#39;s take an example:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">named_args</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">greeting</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">)</span>
+</pre></div>
+</td></tr></table></div><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">named_args</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;jim&#39;</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+
+<span class="n">named_args</span><span class="p">(</span><span class="n">greeting</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;jim&#39;</span><span class="p">)</span> <span class="c1"># you can pass arguments this way too</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Value:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Hello jim
+Hello jim
+</pre></div>
+</td></tr></table></div><span id="mixing-positional-and-keyword-arguments" class="anchor-target"></span><h2 class="heading">Mixing Positional and Keyword Arguments <a class="header-link" href="index.html#mixing-positional-and-keyword-arguments">#</a></h2><hr>
+<p>It is possible to mix positional arguments and Keyword arguments, but for this positional argument must appear before any Keyword arguments. Let&#39;s see this through an example.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p>You can call the above function in the following ways.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># using positional arguments only</span>
+<span class="n">my_func</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>     
+
+<span class="c1"># here first argument is passed as positional arguments while other two as keyword argument</span>
+<span class="n">my_func</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> 
+
+<span class="c1"># same as above</span>
+<span class="n">my_func</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span> 
+
+<span class="c1"># this is wrong as positional argument must appear before any keyword argument </span>
+<span class="c1"># my_func(12, b=13, 14)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="m">12</span> <span class="m">13</span> <span class="m">14</span>
+<span class="m">12</span> <span class="m">13</span> <span class="m">14</span>
+<span class="m">12</span> <span class="m">14</span> <span class="m">13</span>
+</pre></div>
+</td></tr></table></div><span id="returning-multiple-values-from-function" class="anchor-target"></span><h2 class="heading">Returning multiple values from Function <a class="header-link" href="index.html#returning-multiple-values-from-function">#</a></h2><hr>
+<p>We can return multiple values from function using the return statement by separating them with a comma (<code>,</code>). Multiple values are returned as tuples.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bigger</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">bigger</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">(</span><span class="m">100</span>, <span class="m">12</span><span class="o">)</span>
+&lt;class <span class="s1">&#39;tuple&#39;</span>&gt;
+</pre></div>
+</td></tr></table></div><p>In the next post we will learn about <a href="../python-loops/index.html">Python Loops</a></p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="../python-control-statements/index.html" title="Python Control Statements">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Python Control Statements
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="../python-loops/index.html" title="Python Loops">
+                            Python Loops
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

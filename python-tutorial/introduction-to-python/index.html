@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Introduction to Python - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="What is Python? #
+Python is a general-purpose programming language created by Guido Van Rossum. Python is most praised for its elegant syntax and rea…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Introduction to Python" />
+
+    <meta property="og:description" content="What is Python? #
+Python is a general-purpose programming language created by Guido Van Rossum. Python is most praised for its elegant syntax and rea…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/python-tutorial/introduction-to-python/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="What is Python? #
+Python is a general-purpose programming language created by Guido Van Rossum. Python is most praised for its elegant syntax and rea…" />
+
+
+<meta name="twitter:title" content="Introduction to Python" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../../index.html">Home</a></li>
+
+    
+        
+        <li><a href="../index.html">Python tutorial</a></li>
+        
+
+        
+
+        
+    
+        
+
+        
+
+        
+            <li class="active">Introduction to Python</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Introduction to Python</h1>
+
+
+
+
+
+<hr>
+
+
+
+<span id="what-is-python" class="anchor-target"></span><h2 class="heading">What is Python? <a class="header-link" href="index.html#what-is-python">#</a></h2><hr>
+<p>Python is a general-purpose programming language created by Guido Van Rossum. Python is most praised for its elegant syntax and readable code, if you are just beginning your programming career Python suits you best. Here are some of the cool things you can do with Python</p>
+<ol>
+<li>GUI development</li>
+<li>Web development</li>
+<li>System administration</li>
+<li>Financial calculation</li>
+<li>Data analysis</li>
+<li>Visualization</li>
+<li>Machine learning</li>
+</ol>
+<span id="a-little-history-lesson-in-computing" class="anchor-target"></span><h2 class="heading">A little history lesson in Computing <a class="header-link" href="index.html#a-little-history-lesson-in-computing">#</a></h2><hr>
+<p>Things start off with the machine language.</p><span id="machine-language" class="anchor-target"></span><h3 class="heading">Machine Language <a class="header-link" href="index.html#machine-language">#</a></h3><hr>
+<p>Machine language refers to the native language of the computer, that is, the CPU. Machine language consists of strings of <code>0</code>s and <code>1</code>s. For example, instruction to add two numbers in binary would look something like this:</p><div class="codeblock language-text"><div class="highlight"><pre><span></span>0101010100001
+</pre></div>
+</div><p>A CPU usually consists of hundreds of instructions, which are collectively called the instruction set. CPUs from different vendors have different instruction set. This means that, instruction set for the Intel family of CPUs is different from the AMD family.</p><p>As you can imagine, writing programs in machine language is quite tedious and time consuming. Furthermore, they are difficult to read, modify and debug (art of finding and resolving errors). Consequently, this led to the development of assembly language.</p><span id="assembly-language" class="anchor-target"></span><h3 class="heading">Assembly language <a class="header-link" href="index.html#assembly-language">#</a></h3><hr>
+<p>Rather than replying on the binary pattern, assembly language uses short descriptive words, often called mnemonics to represent each machine instruction. For example, instruction to add two numbers in assembly language would looks like this:</p><div class="codeblock language-asm"><div class="highlight"><pre><span></span><span class="nf">add</span> <span class="no">a</span><span class="p">,</span> <span class="no">b</span>
+</pre></div>
+</div><p>In contrast to the machine language, this was quite an improvement. Even people with no background in Computer science can intuitively understand what this instruction does.</p><p>This is all fine and dandy, but the CPU doesn&#39;t understand the assembly language, it is still stuck to the good old pattern of binary numbers! This is where the assembler comes in to the play. An assembler is a program whose job is to translate a program written in assembly language to the machine language.</p><p>[]</p><p>The machine language or machine code generated by the assembler can then be executed by the CPU. After every modification you will have to pass the program through the assembler again to generate the new machine code.</p><p>Assembly language made the life of programmer somewhat easier. In comparison to the machine code, the programs written in assembly language was easier to read, modify and debug. But there was still room for the improvement.</p><p>Here are some of the shortcomings of the assembly language:</p>
+<ol>
+<li>Writing large scale program in assembly language is quite difficult. Even trivial programs require several instructions.</li>
+<li>To use assembly language to the fullest one needs to have a through understanding of CPU architecture and instruction set.</li>
+<li>No portability. Programs written for one CPU, may not work on other.</li>
+<li>Given the complex nature (illustrated in 1-3), it takes lot of time to write programs in assembly language.</li>
+</ol>
+<p>Apart from the readability all of these shortcomings also exists in the machine language.</p><p>Since, both machine and assembly language require you to have a working knowledge of low-level details of the computer&#39;s hardware, they are referred to as the low-level languages. To address the shortcomings of low-level language, high-level language was invented, which brings us to the next topic.</p><span id="the-dawn-of-the-high-level-languages" class="anchor-target"></span><h2 class="heading">The dawn of the High-level languages <a class="header-link" href="index.html#the-dawn-of-the-high-level-languages">#</a></h2><hr>
+<p>A high-level language is a new generation of language that is focused on solving problems rather than bogging down into the details of how the computers work. High-level languages are closer to human languages. Thus, they are easier to learn. The instruction written in a high-level language is called a statement. For example, the following statement calculates the area of a rectangle:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mi">20</span>
+</pre></div>
+</div><p>Here are some advantages of the High-level language:</p>
+<ol>
+<li>You don&#39;t need to spend years learning about various CPU architectures or instruction sets to write programs. All you need is the knowledge of the industry/domain you are working for. </li>
+<li>Programs written in High-level language are portable. That is, programs are not tied to a particular CPU.</li>
+<li>In early, days of computing, programmers were mathematicians or computer scientists. High-level languages have lowered the entry barrier so much that the people who are relatively new to computing can learn to program in a few weeks.</li>
+</ol>
+<p>The programs written in high-level languages are called source code. As with the assembly language, the CPU doesn&#39;t have clue as to what the high-level language is. To run the program written in a high-level language, you still have to translate it to the machine code.</p><p>There are two types of programs available to do the translation:</p>
+<ol>
+<li>Compiler</li>
+<li>Interpreter</li>
+</ol>
+<span id="compiler" class="anchor-target"></span><h3 class="heading">Compiler <a class="header-link" href="index.html#compiler">#</a></h3><hr>
+<p>A compiler translates the high-level language to machine code, in one go. The machine code can then be executed by the CPU.</p><p>The following figure illustrates the working of a compiler.</p><p>[]</p><p>Once the machine code is generated, you can run it as many times as you want. After every modification, you will have to re-compile the program to generate the new machine code.</p><p>High-level Languages that use compiler to generate the machine code are called <strong>Compiled languages</strong>. The following are some examples of the compiled languages.</p>
+<ol>
+<li>C</li>
+<li>C++</li>
+<li>Java</li>
+<li>C#</li>
+<li>Go</li>
+</ol>
+<span id="interpreter" class="anchor-target"></span><h3 class="heading">Interpreter <a class="header-link" href="index.html#interpreter">#</a></h3><hr>
+<p>Unlike a compiler, an interpreter reads statements one by one, converts it to the machine code and executes it immediately. This process continues until the end of the file is reached.</p><p>Unlike a compiler, an interpreter reads one statement from the source code, translate it to the machine code and executes it immediately. In this way, an interpreter continues to read, translate and execute the statements one by one until the end of the file is reached.</p><p>The following figure illustrates the working of an interpreter.</p><p>[]</p><p>High-level Languages that use an interpreter to generate the machine code are called <strong>Interpreted languages</strong>. The following are some examples of compiled languages.</p>
+<ol>
+<li>Python</li>
+<li>PHP</li>
+<li>JavaScript</li>
+<li>Ruby</li>
+<li>Perl</li>
+</ol>
+<span id="python-is-an-interpreted-language" class="anchor-target"></span><h2 class="heading">Python is an interpreted language <a class="header-link" href="index.html#python-is-an-interpreted-language">#</a></h2><hr>
+<p>Yes, Python is interpreted language, when you run a Python program an interpreter will translate and execute the source code on line by line basis, as compared to compiled languages like C or C++, where compiler translates all statements at once.</p><p>Now you might ask, so what&#39;s the difference?</p><p>The difference is that the interpreted languages are little bit slow as compared to compiled languages. Yes, you will definitely get some performance benefits if you write your code in compiled languages like C or C++, but writing codes in such languages is a daunting task for a beginner. Furthermore, in such languages, you need to write even most basic functions like calculating the length of the array, splitting the string, finding substring in a string and so on. For more advanced tasks sometimes you need to roll out your own data structures (referred to the way data is organized in the system) to encapsulate data in the program. Hence, in C/C++ before you actually start solving your business problem you need to take care of all the gritty details. This is where Python steps in. In Python, you don&#39;t need to define any data structure, no need to define small utility functions because Python has everything to get you started.</p><p>Moreover, Python has hundreds of libraries available at <a href="https://pypi.python.org/">https://pypi.python.org/</a> which you can use in your project without reinventing the wheel.</p><span id="python-is-dynamically-typed" class="anchor-target"></span><h2 class="heading">Python is Dynamically Typed <a class="header-link" href="index.html#python-is-dynamically-typed">#</a></h2><hr>
+<p>Python doesn&#39;t require you to define variable data type ahead of time. Python automatically infers the type of the variable based on the type of value it contains. For example:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">myvar</span> <span class="o">=</span> <span class="s2">&quot;Hello Python&quot;</span>
+</pre></div>
+</div><p>The above line of code assigns string <code>&quot;Hello Python&quot;</code> to the variable <code>myvar</code>, so the type of <code>myvar</code> is string.</p><p>Note that unlike languages like C, C++ and Java, in Python you do not need to end a statement with a semicolon (<code>;</code>).</p><p>Suppose, a little bit later in the program we assign variable <code>myvar</code> a value of <code>1</code>, that is:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">myvar</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div><p>Now, the <code>myvar</code> variable is of type <code>int</code>.</p><p>We discuss all about variables in chapter <a href="index.html">Variables in Python</a>.</p><span id="python-is-strongly-typed" class="anchor-target"></span><h2 class="heading">Python is strongly typed <a class="header-link" href="index.html#python-is-strongly-typed">#</a></h2><hr>
+<p>If you have programmed in languages like PHP or JavaScript. You may have noticed that they both convert data of one type to another automatically. Such languages are called weakly typed language.</p><p>For example, consider the following JavaScript code:</p><div class="codeblock language-js"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="s2">&quot;2&quot;</span>
+</pre></div>
+</div><p>Expected Output:</p><div class="codeblock language-text"><div class="highlight"><pre><span></span>&#39;12&#39;
+</pre></div>
+</div><p>Here before the addition (<code>+</code>) is carried out, integer <code>1</code> will be converted to a string <code>&quot;1&quot;</code> and concatenated to <code>&quot;2&quot;</code>, which results in a string containing <code>&quot;12&quot;</code>. However, In Python, such automatic conversions are not allowed, so the following code will produce an error.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="s2">&quot;2&quot;</span>
+</pre></div>
+</div><p>Try it out:</p>
+
+<div class="panel panel-default code-runner" id="ghC2tqhLoie2sLkuu8vXyb"
+     data-coderunner-id="ghC2tqhLoie2sLkuu8vXyb" data-language="python">
+
+
+
+    <pre style="display: none"><code># run this code to see the error
+1 + &quot;2&quot;
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-ghC2tqhLoie2sLkuu8vXyb"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-ghC2tqhLoie2sLkuu8vXyb">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-ghC2tqhLoie2sLkuu8vXyb" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-ghC2tqhLoie2sLkuu8vXyb" id="output-tab-ghC2tqhLoie2sLkuu8vXyb"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-ghC2tqhLoie2sLkuu8vXyb" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-ghC2tqhLoie2sLkuu8vXyb" role="tab" id="input-tab-ghC2tqhLoie2sLkuu8vXyb"
+                       data-toggle="tab" aria-controls="input-ghC2tqhLoie2sLkuu8vXyb" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-ghC2tqhLoie2sLkuu8vXyb" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-ghC2tqhLoie2sLkuu8vXyb"
+                     aria-labelledby="output-tab-ghC2tqhLoie2sLkuu8vXyb">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-ghC2tqhLoie2sLkuu8vXyb" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-ghC2tqhLoie2sLkuu8vXyb" aria-labelledby="input-tab-ghC2tqhLoie2sLkuu8vXyb">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-ghC2tqhLoie2sLkuu8vXyb" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-ghC2tqhLoie2sLkuu8vXyb"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<span id="write-less-code-and-do-more" class="anchor-target"></span><h2 class="heading">Write less code and do more <a class="header-link" href="index.html#write-less-code-and-do-more">#</a></h2><hr>
+<p>Programs written in Python are usually 1/3 or 1/5 of the Java code. It means, we can write less code in Python to achieve the same thing as in Java.</p><p>To read a file in Python you only need 2 lines of code:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;myfile.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div><p>Try it out:</p>
+
+<div class="panel panel-default code-runner" id="Cf73caMyi9Q55bVgdr4x6M"
+     data-coderunner-id="Cf73caMyi9Q55bVgdr4x6M" data-language="python">
+
+
+
+    <pre style="display: none"><code># these two lines create a file &quot;myfile.txt&quot; with data &quot;Learning Python&quot;
+with open(&quot;myfile.txt&quot;, &quot;w&quot;) as f:
+   f.write(&quot;Learning Python&quot;)
+
+
+# these two lines read data from myfile.txt
+with open(&quot;myfile.txt&quot;) as f:
+   print(f.read())
+</code></pre>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <textarea id="sourceEditor-Cf73caMyi9Q55bVgdr4x6M"
+                          class="form-control sourceEditor" rows="3">Loading...</textarea>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-primary runBtn" id="runBtn-Cf73caMyi9Q55bVgdr4x6M">Submit</button>
+        </form>
+
+        <hr>
+
+        <div class="code-runner-tabs" data-example-id="togglable-tabs">
+            <ul id="mytabs-Cf73caMyi9Q55bVgdr4x6M" class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="index.html#output-Cf73caMyi9Q55bVgdr4x6M" id="output-tab-Cf73caMyi9Q55bVgdr4x6M"
+                       role="tab" data-toggle="tab"
+                       aria-controls="output-Cf73caMyi9Q55bVgdr4x6M" aria-expanded="true">
+                        Output
+                    </a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="index.html#input-Cf73caMyi9Q55bVgdr4x6M" role="tab" id="input-tab-Cf73caMyi9Q55bVgdr4x6M"
+                       data-toggle="tab" aria-controls="input-Cf73caMyi9Q55bVgdr4x6M" aria-expanded="false">Input
+                    </a>
+                </li>
+            </ul>
+            <div id="tabcontent-Cf73caMyi9Q55bVgdr4x6M" class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in" id="output-Cf73caMyi9Q55bVgdr4x6M"
+                     aria-labelledby="output-tab-Cf73caMyi9Q55bVgdr4x6M">
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <textarea class="form-control outputEditor" id="outputEditor-Cf73caMyi9Q55bVgdr4x6M" rows="3"></textarea>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade"
+                     id="input-Cf73caMyi9Q55bVgdr4x6M" aria-labelledby="input-tab-Cf73caMyi9Q55bVgdr4x6M">
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                    <textarea class="form-control code-input inputEditor" id="inputEditor-Cf73caMyi9Q55bVgdr4x6M" rows="3"></textarea>
+                    </div>
+                    <!--<textarea id="TextArea" class="form-control" rows="3"></textarea>-->
+                </div>
+                <small id="status-Cf73caMyi9Q55bVgdr4x6M"></small>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<p>Don&#39;t pay much attention to the commands being used to read and write the file. We will learn all about that in the upcoming chapters. In case, you are dying to know how to read and write files, consider jumping to chapter <a href="index.html">Reading and writing files in Python</a>.</p><span id="should-i-learn-python-2-or-python-3" class="anchor-target"></span><h2 class="heading">Should I learn Python 2 or Python 3? <a class="header-link" href="index.html#should-i-learn-python-2-or-python-3">#</a></h2><hr>
+<p>If you are just starting out you might have heard that there are two major versions of Python: Python 2 and Python 3. You might also be confused whether you should learn Python 2 or 3.</p><p>Just to clear things up, Python 2 is a thing of the past and Python 3 is the future. Python 3 was introduced to address the shortcomings of Python 2 and now all the development is happening in Python 3.</p><p>If you have some background with Python 2 then you already know Python 3 to some extent. Also keep in mind that Python 3 is not backward compatible with Python 2. In other words, you can&#39;t run a Python 3 program using a Python 2 interpreter.</p><p>This tutorial is all about Python 3, but we will point out major differences wherever necessary.</p><span id="who-uses-python" class="anchor-target"></span><h2 class="heading">Who uses Python? <a class="header-link" href="index.html#who-uses-python">#</a></h2><hr>
+<p>Python is used by many large organizations like Google, NASA, Quora, HortonWorks and many others.</p><p>In the next post, we will learn <a href="../../installing-python3/index.html">how to install Python</a>.</p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+
+                
+                    <li class="next">
+                        <a href="../installing-python-3-on-windows-linux-mac/index.html" title="Installing Python 3 on Windows/Linux/Mac">
+                            Installing Python 3 on Windows/Linux/Mac
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    <div class="well">
+        <h4>Python tutorial</h4>
+        <ul>
+            
+                <li><a href="index.html">Introduction to Python</a></li>
+            
+                <li><a href="../installing-python-3-on-windows-linux-mac/index.html">Installing Python 3 on Windows/Linux/Mac</a></li>
+            
+        </ul>
+    </div>
+
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../../about/index.html">About</a></li>
+                    <li><a href="../../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

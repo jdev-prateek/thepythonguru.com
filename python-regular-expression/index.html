@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Python Regular Expression - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="Regular expression is widely used for pattern matching. Python has built-in support for regular function. To use regular expression you need to impor…"/>
+
+
+
+    <link rel="canonical" href="index.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python Regular Expression" />
+
+    <meta property="og:description" content="Regular expression is widely used for pattern matching. Python has built-in support for regular function. To use regular expression you need to impor…" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/python-regular-expression/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="Regular expression is widely used for pattern matching. Python has built-in support for regular function. To use regular expression you need to impor…" />
+
+
+<meta name="twitter:title" content="Python Regular Expression" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="../feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="../static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="../index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="../blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="../contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="../write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="../index.html">Home</a></li>
+
+    
+        
+
+        
+            <li><a href="../blog/index.html">Blog</a></li>
+        
+
+        
+            <li class="active">Python Regular Expression</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Python Regular Expression</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Updated on Jan 07, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>Regular expression is widely used for pattern matching. Python has built-in support for regular function. To use regular expression you need to import <code>re</code> module.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div><p>Now you are ready to use regular expression.</p><span id="research-method" class="anchor-target"></span><h2 class="heading">re.search() Method <a class="header-link" href="index.html#research-method">#</a></h2><hr>
+<p>The <code>re.search()</code> is used to find the first match for the pattern in the string.</p><p><strong>Syntax:</strong> <code>re.search(pattern, string, flags[optional])</code></p><p>The <code>re.search()</code> method accepts pattern and string and returns a <code>match</code> object on success or <code>None</code> if no match is found. The <code>match</code> object has <code>group()</code> method which contains the matching text in the string.</p><p>You must specify the pattern using raw strings i.e prepending string with <code>r</code> like this.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s1">&#39;this \n&#39;</span>
+</pre></div>
+</div><p>All the special character and escape sequences loose their special meanings in raw string so <code>\n</code> is not a newline character, it&#39;s just a backslash <code>\</code> followed by a <code>n</code>.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">re</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;my number is 123&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d\d\d&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">match</span>
+<span class="o">&lt;</span><span class="n">_sre</span><span class="o">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">&#39;123&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="s1">&#39;123&#39;</span>
+</pre></div>
+</td></tr></table></div><p>Above we have used <code>\d\d\d</code> as pattern. <code>\d</code> in regular expression matches a single digit, so</p><p><code>\d\d\d</code> will match digits like <code>111</code>, <code>222</code>, <code>786</code>. It will not match <code>12</code>, <code>1444</code>.</p><span id="basic-patterns-used-in-regular-expression" class="anchor-target"></span><h2 class="heading">Basic patterns used in regular expression <a class="header-link" href="index.html#basic-patterns-used-in-regular-expression">#</a></h2><hr>
+<div style="overflow-x:auto"><table class="table table-bordered table-hover table-condensed"><thead>
+<tr>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td>dot matches any character except newline</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>matches any word character i.e letters, alphanumeric, digits and underscore (<code>_</code>)</td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>matches non word characters</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>matches a single digit</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>matches a single character that is not a digit</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>matches any white-spaces character like <code>\n</code>, <code>\t</code>, spaces</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>matches single non white space character</td>
+</tr>
+<tr>
+<td><code>[abc]</code></td>
+<td>matches single character in the set i.e either match <code>a</code>, <code>b</code> or <code>c</code></td>
+</tr>
+<tr>
+<td><code>[^abc]</code></td>
+<td>match a single character other than <code>a</code>, <code>b</code> and <code>c</code></td>
+</tr>
+<tr>
+<td><code>[a-z]</code></td>
+<td>match a single character in the range <code>a</code> to <code>z</code>.</td>
+</tr>
+<tr>
+<td><code>[a-zA-Z]</code></td>
+<td>match a single character in the range a-z or A-Z</td>
+</tr>
+<tr>
+<td><code>[0-9]</code></td>
+<td>match a single character in the range <code>0</code>-<code>9</code></td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>match start at beginning of the string</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>match start at end of the string</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>matches one or more of the preceding character (greedy match).</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>matches zero or more of the preceding character (greedy match).</td>
+</tr>
+</tbody>
+</table></div><p>Let take one more example:</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;tim email is tim@somehost.com&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[\w.-]+@[\w.-]+&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="c1"># the above regular expression will match a email address</span>
+
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;match not found&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p>Here we have used <code>[\w.-]+@[\w.-]+</code> pattern to match an email address. On success, <code>re.search()</code> returns an <code>match</code> object , and its <code>group()</code> method will contain the matching text.</p><span id="group-capturing" class="anchor-target"></span><h2 class="heading">Group capturing <a class="header-link" href="index.html#group-capturing">#</a></h2><hr>
+<p>Group capturing allows to extract parts from the matching string. You can create groups using parentheses <code>()</code>. Suppose we want to extract username and host name from the email address in the above example. To do this we need to add <code>()</code> around username and host name like this.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([\w.-]+)@([\w.-]+)&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div><p>Note that parentheses will not change what the pattern will match. If the match is successful then <code>match.group(1)</code> will contain the match from the first parentheses and <code>match.group(2)</code> will contain the match from the second parentheses.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;tim email is tim@somehost.com&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;([\w.-]+)@([\w.-]+)&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span> <span class="c1">## tim@somehost.com (the whole match)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="c1">## tim (the username, group 1)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1">## somehost (the host, group 2)</span>
+</pre></div>
+</td></tr></table></div><span id="findall-function" class="anchor-target"></span><h2 class="heading">findall() Function <a class="header-link" href="index.html#findall-function">#</a></h2><hr>
+<p>As you know by now <code>re.search()</code> find only first match for the pattern, what if we want to find all matches in string, this is where <code>findall()</code> comes into the play.</p><p><strong>Syntax:</strong> <code>findall(pattern, string, flags=0[optional])</code></p><p>On success, it returns all the matches as a list of strings, otherwise an empty list.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Tim&#39;s phone numbers are 12345-41521 and 78963-85214&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d{5}&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="o">[</span><span class="s1">&#39;12345&#39;</span>, <span class="s1">&#39;41521&#39;</span>, <span class="s1">&#39;78963&#39;</span>, <span class="s1">&#39;85214&#39;</span><span class="o">]</span>
+</pre></div>
+</div><p>You can also use group capturing with <code>findall()</code>, when group capturing is applied then <code>findall()</code> returns a list of tuples where tuples will contain the matching groups. An example will clear everything.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Tim&#39;s phone numbers are 12345-41521 and 78963-85214&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d{5})-(\d{5})&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">match</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;First group&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Second group&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">[(</span><span class="s1">&#39;12345&#39;</span>, <span class="s1">&#39;41521&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;78963&#39;</span>, <span class="s1">&#39;85214&#39;</span><span class="o">)]</span>
+
+<span class="o">(</span><span class="s1">&#39;12345&#39;</span>, <span class="s1">&#39;41521&#39;</span><span class="o">)</span>
+First group <span class="m">12345</span>
+Second group <span class="m">41521</span>
+
+<span class="o">(</span><span class="s1">&#39;78963&#39;</span>, <span class="s1">&#39;85214&#39;</span><span class="o">)</span>
+First group <span class="m">78963</span>
+Second group <span class="m">85214</span>
+</pre></div>
+</td></tr></table></div><span id="optional-flags" class="anchor-target"></span><h2 class="heading">Optional flags <a class="header-link" href="index.html#optional-flags">#</a></h2><hr>
+<p>Both <code>re.search()</code> and <code>re.findall()</code> accepts and optional parameter called flags. flags are used to modify the behavior of the pattern matching.</p><div style="overflow-x:auto"><table class="table table-bordered table-hover table-condensed"><thead>
+<tr>
+<th>Flags</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>re.IGNORECASE</code></td>
+<td>Ignores uppercase and lowercase</td>
+</tr>
+<tr>
+<td><code>re.DOTALL</code></td>
+<td>Allows (<code>.</code>) to match newline, be default (<code>.</code>) matches any character except newline</td>
+</tr>
+<tr>
+<td><code>re.MULTILINE</code></td>
+<td>This will allow <code>^</code> and <code>$</code> to match start and end of each line</td>
+</tr>
+</tbody>
+</table></div><span id="using-rematch" class="anchor-target"></span><h2 class="heading">Using re.match() <a class="header-link" href="index.html#using-rematch">#</a></h2><hr>
+<p>The <code>re.match()</code> is very similar to <code>re.search()</code> difference is that it will start looking for matches at the beginning of the string.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;python tuts&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;py&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div><p>You can accomplish the same thing by applying <code>^</code> to a pattern with <code>re.search()</code>.</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;python tuts&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^py&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div><p>This completes everything you need to know about <code>re</code> module in python.</p>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="../python-generators/index.html" title="Python Generators">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Python Generators
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="../installing-packages-in-python-using-pip.html" title="Installing packages in python using PIP">
+                            Installing packages in python using PIP
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="index.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="../static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="../tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="../choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="../benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="../vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="../why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="../about/index.html">About</a></li>
+                    <li><a href="../terms-of-use/index.html">Terms</a></li>
+                    <li><a href="../privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="../contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="../static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+

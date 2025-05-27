@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Python String Formatting - ThePythonGuru.com</title>
+
+    
+    
+
+
+
+    <meta name="description" content="The format() method allows you format string in any way you want.Syntax: template.format(p1, p1, .... , k1=v1, k2=v2)template is a string containing …"/>
+
+
+
+    <link rel="canonical" href="python-string-formatting.html">
+
+
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Python String Formatting" />
+
+    <meta property="og:description" content="The format() method allows you format string in any way you want.Syntax: template.format(p1, p1, .... , k1=v1, k2=v2)template is a string containing …" />
+
+
+<meta property="og:url" content="https://thepythonguru.com/python-string-formatting/" />
+<meta property="og:site_name" content="thepythonguru.com" />
+
+
+<meta property="article:publisher" content="https://www.facebook.com/thepythonguru" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:description" content="The format() method allows you format string in any way you want.Syntax: template.format(p1, p1, .... , k1=v1, k2=v2)template is a string containing …" />
+
+
+<meta name="twitter:title" content="Python String Formatting" />
+<meta name="twitter:site" content="@thepythonguru" />
+
+<meta name="twitter:creator" content="@thepythonguru" />
+
+
+
+
+    
+    
+    
+
+
+    
+    
+    
+
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml/index.html">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="static/wiki/favicon.png" sizes="32x32" />
+
+    <link rel="stylesheet" href="static/CACHE/css/output.6be9976864ee.css" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39121661-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39121661-7');
+    </script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-inverse" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">ThePythonGuru</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+
+                <li >
+                    <a href="index.html">Start Here</a>
+                </li>
+                <li >
+                    <a href="blog/index.html">Blog</a>
+                </li>
+                
+                
+                
+                <li >
+                    <a href="contact-us/index.html">Contact</a>
+                </li>
+                <li >
+                    <a href="write-for-us/index.html">Write For Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="python-string-formatting.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="tools/pygments-demo/index.html">Pygments Demo</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+
+
+
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+    
+
+    
+
+    <div class="row">
+
+        
+        <div class="main">
+            <div  class="col-lg-8 col-md-8 col-sm-12">
+                
+
+    
+
+
+    
+        
+
+<ol class="breadcrumb">
+
+    <li><a href="index.html">Home</a></li>
+
+    
+        
+
+        
+            <li><a href="blog/index.html">Blog</a></li>
+        
+
+        
+            <li class="active">Python String Formatting</li>
+        
+    
+
+</ol>
+
+
+    
+
+
+
+<p class="advert">
+    (Sponsors) Get started learning Python with <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">DataCamp's</a>
+    free <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Intro to Python tutorial</a>.
+
+    Learn Data Science by completing interactive coding challenges and watching videos by expert instructors.
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/intro-to-python-for-data-science/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">Start Now!</a>
+</p>
+<hr>
+
+<h1>Python String Formatting</h1>
+
+
+
+
+    <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+        Updated on Jan 07, 2020
+    </p>
+
+
+<hr>
+
+
+
+<p>The <code>format()</code> method allows you format string in any way you want.</p><p><strong>Syntax:</strong> <code>template.format(p1, p1, .... , k1=v1, k2=v2)</code></p><p>template is a string containing format codes, <code>format()</code> method uses it&#39;s argument to substitute value for each format codes. For e.g:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;Sam has {0} red balls and {1} yellow balls&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+</pre></div>
+</div><p><code>{0}</code> and <code>{1}</code> are format codes. The format code <code>{0}</code> is replaced by the first argument of <code>format()</code> i.e <code>12</code>, while <code>{1}</code> is replaced by the second argument of <code>format()</code> i.e <code>31</code>.</p><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>Sam has <span class="m">12</span> red balls and <span class="m">31</span> yellow balls
+</pre></div>
+</div><p>This technique is okay for simple formatting but what if you want to specify precision in floating point number? For such thing you need to learn more about format codes. Here is the full syntax of format codes.</p><p><strong>Syntax:</strong> <code>{[argument_index_or_keyword]:[width][.precision][type]}</code></p><p>The <code>type</code> can be used with format codes:</p><div style="overflow-x:auto"><table class="table table-bordered table-hover table-condensed"><thead>
+<tr>
+<th>Format codes</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>d</code></td>
+<td>for integers</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>for floating point numbers</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>for binary numbers</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>for octal numbers</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>for octal hexadecimal numbers</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>for string</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>for floating point in exponent format</td>
+</tr>
+</tbody>
+</table></div><p>Following examples will make things more clear.</p><p><strong>Example 1:</strong></p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;Floating point {0:.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">345.7916732</span><span class="p">)</span>
+</pre></div>
+</div><p>Here we specify <code>2</code> digits of precision and <code>f</code> is used to represent floating point number.</p><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>Floating point <span class="m">345</span>.79
+</pre></div>
+</div><p><strong>Example 2:</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;Floating point {0:10.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p>Here we specify <code>3</code> digits of precision, <code>10</code> for width and <code>f</code> for floating point number.</p><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>Floating point <span class="m">3</span>.142
+</pre></div>
+</div><p><strong>Example 3:</strong></p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;Floating point pi = {0:.3f}, with {1:d} digit precision&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div><p>Here <code>d</code> in <code>{1:d}</code> represents integer value.</p><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>Floating point <span class="nv">pi</span> <span class="o">=</span> <span class="m">3</span>.142, with <span class="m">3</span> digit precision
+</pre></div>
+</div><p>You need to specify precision only in case of floating point numbers if you specify precision for integer <code>ValueError</code> will be raised.</p><p><strong>Example 5:</strong></p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s1">&#39;Sam has {1:d} red balls and {0:d} yellow balls&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+</pre></div>
+</div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>Sam has <span class="m">31</span> red balls and <span class="m">12</span> yellow balls
+</pre></div>
+</div><p><strong>Example 6:</strong></p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;In binary 4 is {0:b}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># b for binary, refer to Fig 1.1</span>
+</pre></div>
+</div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>In binary <span class="m">4</span> is <span class="m">100</span>
+</pre></div>
+</div><p><strong>Example 7:</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="s2">&quot;A = {0}, B = {1}, C = {2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="o">=</span> <span class="m">34</span>, <span class="nv">B</span> <span class="o">=</span> <span class="m">66</span>, <span class="nv">C</span> <span class="o">=</span> <span class="m">12</span>
+</pre></div>
+</div><p><strong>Example 8:</strong></p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;hats&#39;</span> <span class="p">:</span> <span class="mi">122</span><span class="p">,</span>
+<span class="s1">&#39;mats&#39;</span> <span class="p">:</span> <span class="mi">42</span>
+<span class="p">}</span>
+
+<span class="s2">&quot;Sam had {hats} hats and {mats} mats&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>Sam had <span class="m">122</span> hats and <span class="m">42</span> mats
+</pre></div>
+</div><p>The <code>format()</code> method also supports keywords arguments.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s1">&#39;Sam has {red} red balls and {green} yellow balls&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">red</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">31</span><span class="p">)</span>
+</pre></div>
+</div><p>Note while using keyword arguments we need to use arguments inside <code>{}</code> not numeric index.</p><p>You can also mix position arguments with keywords arguments</p><div class="codeblock language-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s1">&#39;Sam has {red} red balls, {green} yellow balls </span><span class="se">\</span>
+<span class="s1">and {0} bats&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">red</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">31</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div><p>The <code>format()</code> method of formatting string is quite new and was introduced in Python 2.6 . There is another old technique  you will see in legacy codes which allows you to format string using <code>%</code> operator instead of <code>format()</code> method.</p><p>Let&#39;s take an example.</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> pens cost = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">150.87612</span><span class="p">)</span>
+</pre></div>
+</div><p>Here we are using template string on the left of <code>%</code>. Instead of <code>{}</code> for format codes we are using <code>%</code>. On the right side of <code>%</code> we use tuple to contain our values. <code>%d</code> and <code>%.2f</code> are called as format specifiers, they begin with <code>%</code> followed by character that represents the data type. For e.g <code>%d</code> format specifier is a placeholder for a integer, similarly <code>%.2f</code> is a placeholder for floating point number.</p><p>So <code>%d</code> is replaced by the first value of the tuple i.e <code>12</code> and <code>%.2f</code> is replaced by second value i.e <code>150.87612</code>.</p><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">12</span> pens <span class="nv">cost</span> <span class="o">=</span> <span class="m">150</span>.88
+</pre></div>
+</div><p>Some more examples.</p><p><strong>Example 1:</strong></p><p>New:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;{0:d} {1:d} &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+</pre></div>
+</div><p>Old:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+</pre></div>
+</div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">12</span> <span class="m">31</span>
+</pre></div>
+</div><p><strong>Example 2:</strong></p><p>New:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;{0:.2f} {1:.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">12.3152</span><span class="p">,</span> <span class="mf">89.65431</span><span class="p">)</span>
+</pre></div>
+</div><p>Old:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2"> </span><span class="si">%.3f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mf">12.3152</span><span class="p">,</span> <span class="mf">89.65431</span><span class="p">)</span>
+</pre></div>
+</div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span><span class="m">12</span>.32 <span class="m">89</span>.654
+</pre></div>
+</div><p><strong>Example 3:</strong></p><p>New:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;{0:s} {1:o} {2:.2f} {3:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mf">45836.12589</span><span class="p">,</span> <span class="mi">45</span> <span class="p">)</span>
+</pre></div>
+</div><p>Old:</p><div class="codeblock language-python"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%o</span><span class="s2"> </span><span class="si">%.2f</span><span class="s2"> </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mf">45836.12589</span><span class="p">,</span> <span class="mi">45</span> <span class="p">)</span>
+</pre></div>
+</div><p><strong>Expected Output:</strong></p><div class="codeblock language-bash"><div class="highlight"><pre><span></span>Hello <span class="m">107</span> <span class="m">45836</span>.13 <span class="m">45</span>
+</pre></div>
+</div>
+
+<hr>
+
+<p>Other Tutorials (Sponsors)</p>
+
+<p class="advert">
+    This site generously supported by
+    <a rel="sponsored noopener" target="_blank"
+       href="https://www.datacamp.com/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        DataCamp</a>. DataCamp offers online interactive
+    <a rel="sponsored noopener" target="_blank" href="https://www.datacamp.com/courses/?utm_source=thepythonguru&utm_campaign=thepythonguru_tutorials">
+        Python Tutorials
+    </a> for Data Science. Join over a million other learners and get
+    started learning Python for data science today!
+</p>
+
+
+    
+
+
+
+        <nav aria-label="pagination">
+            <ul class="pager">
+                
+                    <li class="previous">
+                        <a href="python-lambda-function/index.html" title="Python Lambda Function">
+                            <span class="fa fa-arrow-left" aria-hidden="true"></span>
+                            Python Lambda Function
+                        </a>
+                    </li>
+                
+
+                
+                    <li class="next">
+                        <a href="live-coding/index.html" title="Live Coding">
+                            Live Coding
+                            <span class="fa fa-arrow-right" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                
+            </ul>
+        </nav>
+
+
+
+
+
+<hr>
+
+
+
+    <div id="disqus_thread">
+    <p style="margin-bottom: 22px" class="text-center">
+        <a href="python-string-formatting.html#" class=" btn btn-primary comments-holder" onclick="loadDisqus();return false;">View Comments</a>
+    </p>
+    </div>
+    <script>
+        var is_disqus_loaded = false;
+        function loadDisqus() { // DON'T EDIT BELOW THIS LINE
+            is_disqus_loaded = true;
+            var d = document, s = d.createElement('script');
+            s.src = 'https://thepythonguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+        
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                
+
+    
+        
+
+<div class="well">
+    <form action="https://thepythonguru.com/search/">
+        <div class="input-group">
+            <input type="text" class="form-control" name="query" placeholder="Search here"
+                   value="">
+            <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<div class="well" id="myAffix">
+    <a href="https://www.datacamp.com/" rel="noopener">
+        <img class="center-block" src="static/wiki/images/filip_ad.png" alt="">
+    </a>
+</div>
+
+
+
+<div class="well">
+    <h4>Recent Posts</h4>
+    <ul>
+        
+            <li><a href="tips-to-become-a-top-gamer/index.html">Tips to Become a Top Gamer</a></li>
+        
+            <li><a href="choosing-the-right-database-service-factors-to-consider-for-scalability-security-and-performance/index.html">Choosing the Right Database Service: Factors to Consider for Scalability, Security, and Performance</a></li>
+        
+            <li><a href="benefits-of-using-python-for-cyber-security/index.html">Benefits of Using Python for Cyber Security</a></li>
+        
+            <li><a href="vue-vs-react-what-are-the-best-js-technologies-in-2023/index.html">Vue VS React: What Are The Best JS Technologies In 2023</a></li>
+        
+            <li><a href="why-you-should-choose-python-in-2023/index.html">Why You Should Choose Python in 2023?</a></li>
+        
+
+    </ul>
+</div>
+
+    
+
+    
+        
+    
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer class="text-center tpg-footer" >
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="tpg-footer-links text-center">
+                    <li><a href="about/index.html">About</a></li>
+                    <li><a href="terms-of-use/index.html">Terms</a></li>
+                    <li><a href="privacy-policy/index.html">Privacy Policy</a></li>
+                    <li><a href="contact-us/index.html">Contact</a></li>
+                </ul>
+                <hr>
+                <p>&copy; 2025 ThePythonGuru.com</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="static/CACHE/js/output.1879f88478d8.js"></script>
+
+
+
+
+<script>
+    window.cookieconsent.initialise({
+        "palette": {
+            "popup": {
+                "background": "#252e39"
+            },
+            "button": {
+                "background": "#14a7d0"
+            }
+        },
+        "theme": "classic",
+        "content": {
+            "href": "https://thepythonguru.com/privacy-policy/"
+        }
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</body>
+</html>
+
